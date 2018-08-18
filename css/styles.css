@@ -1,8 +1,23 @@
-.layout{
-  /* background-color: red ; */
+.cardZone{
+  background-color: #00bb0055 ;
   border-style: solid;
-  border-color: green;
-  height: 150px;
-  margin: 10px 5px 10px 5px;
+  border-color: darkgreen;
+  height: 140px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 100px;
+  margin: 2px 25px 2px 25px; /* top right bottom left*/
 
+}
+
+.grids{
+  /* background-color: red; */
+  border-color: black;
+  border-style: solid;
+  height: 150px;  /*this is the size of the grid*/
+  margin: 10px 0px 10px 0px ;
+}
+
+.myRow{
+  border-color: red;
+  border-style: solid;
+  ;
 }

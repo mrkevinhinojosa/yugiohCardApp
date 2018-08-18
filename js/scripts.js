@@ -18,13 +18,34 @@
 var myCard1={Name:"Dark", atk: "2500", def:"2100", type: "monster", effect: false};
 var myCard2={Name:"Blue", atk: "3000", def:"2500", type: "monster", effect: false};
 var myCard3={name:"Sword", atk: false, def: false, type: "magic", effect: true};
+
 var myDeck = [];// created empty deck []
+var myHand = [];// created empty hand []
+var myMonsters = []; // created monster zone []
+var myGraveyard = []; //created graveyard
+
+
 myDeck[0]= myCard1; //this adds card to list
 myDeck[1]= myCard2;
 myDeck.push(myCard3)  //.push add card to end of list
 
-alert(myDeck[1].atk);
+//alert(myDeck[1].atk);
 console.log(myDeck);
+
+document.getElementById("player1Deck").addEventListener("click", drawCard); //we find the only instance of player1Deck, when clicked activate function
+
+
+function drawCard(e){
+  e.preventDefault(); //we need this so the page does not refresh
+  var randomNum = Math.floor(Math.random() * 10); //returns a random number from 0-9
+  console.log(randomNum)
+
+
+}
+
+
+
+
 
 
 
