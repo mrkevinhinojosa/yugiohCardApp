@@ -27,18 +27,18 @@ var myGraveyard = []; //created graveyard
 
 myDeck[0]= myCard1; //this adds card to list
 myDeck[1]= myCard2;
-myDeck.push(myCard3)  //.push add card to end of list
+myDeck.push(myCard3);  //.push add card to end of list
 
 //alert(myDeck[1].atk);
 console.log(myDeck);
 
+
 document.getElementById("player1Deck").addEventListener("click", drawCard); //we find the only instance of player1Deck, when clicked activate function
-
-
+//this function returns randome number
 function drawCard(e){
   e.preventDefault(); //we need this so the page does not refresh
   var randomNum = Math.floor(Math.random() * 10); //returns a random number from 0-9
-  console.log(randomNum)
+  console.log(randomNum);
 
 
 }
