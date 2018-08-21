@@ -1,4 +1,4 @@
-//Challenges, dom manipulation, getting data in order of the cards,
+//Challenges, dom manipulation, getting data in order of the cards,, concatenation to work with varables
 
 
 //console.log("test")
@@ -29,6 +29,9 @@ var myCard2={Name:"Blue", atk: "3000", def:"2500", type: "monster", effect: fals
 var myCard3={name:"Sword", atk: false, def: false, type: "magic", effect: true};
 
 
+
+
+//We need to add image link
 var SDY_001 = {id:"SDY-001", name:"Mystical Elf",              type:"Normal Monster",      attribute:"LIGHT", 	subtype:"Spellcaster",  level:"4", atk:	"800" , def:"2000",  rarity:"Common",     description:"A delicate elf that lacks offense, but has a terrific defense backed by mystical power."};
 var SDY_002 = {id:"SDY-002", name:"Feral Imp",                 type:"Normal Monster",      attribute:"DARK", 	  subtype:"Fiend",	      level:"4", atk:	"1300" ,def:"1400",  rarity:"Common",     description:"A playful little fiend that lurks in the dark, waiting to attack an unwary enemy."};
 var SDY_003 = {id:"SDY-003", name:"Winged Dragon, Guardian",   type:"Normal Monster",      attribute:"WIND", 	  subtype:"Dragon",	      level:"4", atk:	"1400" ,def:"1200",  rarity:"Common",     description:"A dragon commonly found guarding mountain fortresses. Its signature attack is a sweeping dive from out of the blue."};
@@ -95,9 +98,27 @@ var oppTraps= [];
 var oppGraveyard = []; //created opponent graveyard
 
 
-myDeck[0]= myCard1; //this adds card to list
-myDeck[1]= myCard2;
-myDeck.push(myCard3);  //.push add card to end of list
+// myDeck[0]= myCard1; //this adds card to list
+// myDeck[1]= myCard2;
+// myDeck.push(myCard3);  //.push add card to end of list
+
+
+
+//add all yugis cards to an array
+var i=1;
+for (i=1; i<=50; i++){
+  console.log(i);
+  if(i<10){     //"SDY_00" +"9"
+    myConcat = this["SDY_00"+i];// this lets us work with the variable name
+    console.log(myConcat);
+    myDeck.push(myConcat);}   //add to the end of the deck array
+  else if(i>=10){   //"SDY_0"+"49"
+    myConcat = this["SDY_0"+i];
+    console.log(myConcat);
+    myDeck.push(myConcat);}  //add to the end of the deck array}
+}
+
+
 
 //alert(myDeck[1].atk);
 console.log(myDeck);
