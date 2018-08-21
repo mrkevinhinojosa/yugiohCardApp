@@ -1,10 +1,14 @@
 .cardZone{
   background-color: #00bb0055 ;
   border-style: solid;
+  border-width: medium;
   border-color: darkgreen;
-  height: 140px;  /* tbis is the size of the card zone, make it smaller than grid*/
-  width: 100px;
-  margin: 2px 25px 2px 25px; /* top right bottom left*/
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
 
 }
 
@@ -12,12 +16,13 @@
   /* background-color: red; */
   border-color: black;
   border-style: solid;
-  height: 150px;  /*this is the size of the grid*/
-  margin: 10px 0px 10px 0px ;
+  border-width: medium;
+  height: 95px;  /*this is the size of the grid*/
+  margin: 5px 0px 5px 0px ;
 }
 
 .myRow{
   border-color: red;
   border-style: solid;
-  ;
+  border-width: thin;
 }

@@ -7,6 +7,12 @@
 //var z= [];
 //var z[2] = [8] // array now size 3 ie. [undefined, undefined, 8]
 //document.write("In my shopping basket I have " + myArr[0] + ", " + myArr[1] + ", and " + myArr[2]);
+
+// var matches = document.querySelectorAll("p");
+
+
+
+
 // reference
 //https://www.w3schools.com/js/js_object_definition.asp
 //https://www.yugiohcardguide.com/spoilers/starter-deck-yugi.html     this is a data list
@@ -22,7 +28,14 @@ var myCard3={name:"Sword", atk: false, def: false, type: "magic", effect: true};
 var myDeck = [];// created empty deck []
 var myHand = [];// created empty hand []
 var myMonsters = []; // created monster zone []
+var myTraps=[]; //created trap card zone
 var myGraveyard = []; //created graveyard
+
+var oppDeck = [];// created opponent empty deck []
+var oppHand = [];// created opponent empty hand []
+var oppMonsters = []; // created opponent monster zone []
+var oppTraps= [];
+var oppGraveyard = []; //created opponent graveyard
 
 
 myDeck[0]= myCard1; //this adds card to list
@@ -32,17 +45,37 @@ myDeck.push(myCard3);  //.push add card to end of list
 //alert(myDeck[1].atk);
 console.log(myDeck);
 
+var matches = document.querySelectorAll(".cardZone");
+console.log("matches are");
+console.log(matches);
 
 document.getElementById("player1Deck").addEventListener("click", drawCard); //we find the only instance of player1Deck, when clicked activate function
-//this function returns randome number
+
+//this function removes a card from the deck and adds to hand
 function drawCard(e){
   e.preventDefault(); //we need this so the page does not refresh
-  var randomNum = Math.floor(Math.random() * 10); //returns a random number from 0-9
-  console.log(randomNum);
-
-
+  myHand.push(myDeck.shift());    //this removes the head and returns the head
+  console.log("myHand is");
+  console.log(myHand);
+  console.log("myDeck is");
+  console.log(myDeck);
+  var node = document.createElement("p")// created <p></p>
+  var textnode = document.createTextNode(myHand[0].Name);
+  console.log(textnode);
+  node.appendChild(textnode);//<p>Dark</p>
+  matches[0].appendChild(node);
+  console.log(matches);
+  console.log("drawCard funct called");
 }
 
+
+//this function returns randome number
+  function diceRoll(e){
+    e.preventDefault(); //we need this so the page does not refresh
+    var randomNum = Math.floor(Math.random() * 10); //returns a random number from 0-9
+    console.log(randomNum);
+
+}
 
 
 
