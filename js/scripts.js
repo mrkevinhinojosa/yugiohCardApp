@@ -123,7 +123,7 @@ for (i=1; i<=50; i++){
 //alert(myDeck[1].atk);
 console.log(myDeck);
 
-var matches = document.querySelectorAll(".cardZone");
+ var matches = document.querySelectorAll(".cardZone");
 console.log("matches are");
 console.log(matches);
 
@@ -138,17 +138,19 @@ function drawCard(e){
   console.log("myDeck is");
   console.log(myDeck);
   var handSize= (myHand.length)-1 ;
-  console.log()
+  console.log();
   var node = document.createElement("IMG")// created <img></img>
-  var daImage= "img/"+ myHand[handSize].image; //created string "img/SDY-001"
-  console.log(myHand[handSize].image);
+  var daImage= "img/"+ myHand[handSize].id + ".jpg"; //created string "img/SDY-001"
+  console.log(myHand[handSize].id);
   console.log(daImage);
   node.setAttribute("src",daImage); //<img src="daImage">
-  node.setAttribute("width","80"); //<img src="daImage" width="80"></img>
-  var textnode = document.createTextNode(myHand[handSize].Name);
+  node.setAttribute("width","60"); //<img src="daImage" width="80"></img>
+  var textnode = document.createTextNode(myHand[handSize].name);  //name of card
   console.log(textnode);
-  node.appendChild(textnode);//<p>Dark</p>
-  matches[handSize].appendChild(node);
+  node.appendChild(textnode);//<p>Dark Magician</p>
+  console.log(node);
+  //matches[handSize].appendChild(node);
+  matches[handSize].replaceChild(node, matches[handSize].childNodes[1]); //this adds <img src="SDY-000"></img>
   console.log(matches);
   console.log("drawCard funct called");
 }
