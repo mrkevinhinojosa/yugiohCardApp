@@ -1,5 +1,5 @@
 //Challenges, dom manipulation, getting data in order of the cards,, concatenation to work with varables
-
+//challenges Show Detail pain in the butt
 
 //console.log("test")
 //alert()
@@ -90,6 +90,8 @@ var myHand = [];// created empty hand []
 var myMonsters = []; // created monster zone []
 var myTraps=[]; //created trap card zone
 var myGraveyard = []; //created graveyard
+var currentHandSize= 0; //this counter holds the size of your hand
+
 
 var oppDeck = [];// created opponent empty deck []
 var oppHand = [];// created opponent empty hand []
@@ -123,37 +125,114 @@ for (i=1; i<=50; i++){
 //alert(myDeck[1].atk);
 console.log(myDeck);
 
- var matches = document.querySelectorAll(".cardZone");
+ var myHandZone = document.querySelectorAll(".myHandZone");
 console.log("matches are");
-console.log(matches);
+console.log(myHandZone);
+
+var myMonsterZone = document.querySelectorAll(".myMonsterZone")
+
+
 
 document.getElementById("player1Deck").addEventListener("click", drawCard); //we find the only instance of player1Deck, when clicked activate function
 
 //this function removes a card from the deck and adds to hand
+//neeed to fix, cards still get added
 function drawCard(e){
-  e.preventDefault(); //we need this so the page does not refresh
-  myHand.push(myDeck.shift());    //this removes the head and returns the head
-  console.log("myHand is");
-  console.log(myHand);
-  console.log("myDeck is");
-  console.log(myDeck);
-  var handSize= (myHand.length)-1 ;
-  console.log();
-  var node = document.createElement("IMG")// created <img></img>
-  var daImage= "img/"+ myHand[handSize].id + ".jpg"; //created string "img/SDY-001"
-  console.log(myHand[handSize].id);
-  console.log(daImage);
-  node.setAttribute("src",daImage); //<img src="daImage">
-  node.setAttribute("width","60"); //<img src="daImage" width="80"></img>
-  var textnode = document.createTextNode(myHand[handSize].name);  //name of card
-  console.log(textnode);
-  node.appendChild(textnode);//<p>Dark Magician</p>
-  console.log(node);
-  //matches[handSize].appendChild(node);
-  matches[handSize].replaceChild(node, matches[handSize].childNodes[1]); //this adds <img src="SDY-000"></img>
-  console.log(matches);
-  console.log("drawCard funct called");
+  if(5<=(myHand.length)){
+    alert("hand is full");
+  }else{
+    e.preventDefault(); //we need this so the page does not refresh
+    myHand.push(myDeck.shift());    //this removes the head and returns the head
+    console.log("myHand is");
+    console.log(myHand);
+    console.log("myDeck is");
+    console.log(myDeck);
+    var handSize= (myHand.length)-1 ; //myHand is empty array
+    console.log(handSize);
+    var node = document.createElement("IMG")// created <img></img>
+    var daImage= "img/"+ myHand[handSize].id + ".jpg"; //created string "img/SDY-001"
+    console.log(myHand[handSize].id);
+    console.log(daImage);
+    node.setAttribute("src",daImage); //<img src="daImage">
+    node.setAttribute("width","60"); //<img src="daImage" width="80"></img>
+    var textnode = document.createTextNode(myHand[handSize].name);  //name of card
+    console.log(textnode);
+    node.appendChild(textnode);//<p>Dark Magician</p>
+    console.log(node);
+    //matches[handSize].appendChild(node);
+    myHandZone[handSize].replaceChild(node, myHandZone[handSize].childNodes[1]); //this adds <img src="SDY-000"></img>
+    console.log(myHandZone);
+    console.log("drawCard funct called");
+  }
 }
+
+//this function will remove card from hand and into monster card zone
+document.getElementById("myHandZone1").addEventListener("click", summonCard);
+function summonCard(e){
+  console.log(myMonsters.length);     //myMonsters is an array
+  e.preventDefault();//we need this so the page does not refresh
+
+  if(5<=myMonsters.length){
+    alert("monsterZone card full")
+  }else{
+    myMonsters.push(myHand.shift()); //remove from hand and add to mosterzone
+    console.log("myHand is");
+    console.log(myHand);
+    console.log("myMonsters are");
+    console.log(myMonsters);
+    var node = document.createElement("p");  //<p></p>
+    var textnode = document.createTextNode("sent to Summon"); //"textnodecrated"
+    node.appendChild(textnode); //<p>"textnodecrated"</p>
+    console.log(node);
+    myMonsterZone[0].replaceChild(myHandZone[0].childNodes[1], myMonsterZone[0].childNodes[1] );//this gets the <img></img> from hand and adds it here to monsterZone
+//
+    myHandZone[0].replaceChild(node, myHandZone[0].childNodes[1] ); //replaces the hand card //childNode[1] is the tae we are replacing
+    console.log("summon card funct activated");
+   }
+}
+
+
+/*is this needed? we have modal, just add items
+document.getElementById("myGraveyard").addEventListener("click", displayGrave);
+function displayGrave(e){
+  e.preventDefault();
+  console.log("entered displaygrave funct");
+}
+*/
+
+
+document.getElementById("myHandZone1").addEventListener("mouseover", showDetail);
+function showDetail(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  var node = document.createElement("img");  //created<img><img>
+  var textnode = document.createTextNode("showDetail");
+  //extract img id of the mouserover image
+  node.setAttribute("src", "img/SDY-020.jpg"); //added attributes
+  node.setAttribute("width", "160")
+  node.appendChild(textnode);
+  var theId = document.getElementById("detail");
+  console.log(theId);
+  theId.replaceChild(node, theId.childNodes[1]);
+  console.log("showDetail funct exit");
+}
+
+document.getElementById().addEventListener("click", sentToGrave);
+function sentToGrave(e){
+  e.preventDefault();
+  console.log("entered sentToGrave")
+
+  console.log("exit sentToGrave")
+}
+
+
+
+
+
+
+
+
+// document.getElementById("myHandZone2").addEventListener("mouseover", showDetail2);
 
 
 /* this function removes a card from deck and adds to hand, works kinda ptag
@@ -182,6 +261,40 @@ function drawCard(e){
     console.log(randomNum);
 
 }
+
+
+
+
+
+//testing Modal
+// Get the modal
+var modal = document.getElementById('myModal');
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+//testing modal^^^^
+
+
+
+
+
+
+
 
 
 

@@ -19,18 +19,18 @@
 </header>
 <!-- <div class="container"> <!--containers take up the whole row-->
 <div class="row myRow">
-  <div class="col-lg-2 grids">
+  <div id="detail" class="col-lg-2 grids">
     <p>card detail</p>
   </div>
   <div class="col-lg-8">
   <div class="row myRow">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class=handZone>
         <p>card A1</p>
     </div>
   </div>
     <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="cardZone">
+      <div class="handZone">
         <div class="caption">
           <p>TN label</p>
           <p><a href="#" class="btn-xs btn-success" role="button">Summon</a>
@@ -39,17 +39,17 @@
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class=handZone>
       <p>card  A3</p>
     </div>
   </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class=handZone>
         <p>card A4</p>
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class=handZone>
         <p>card A5</p>
     </div>
   </div>
@@ -167,7 +167,7 @@
   <div class="col-lg-8">
   <div class="row myRow">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="cardZone">
       <p>card D1</p>
     </div>
   </div>
@@ -217,12 +217,12 @@
   <div class="col-lg-8">
     <div class="row myRow">
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
-        <p>card title E1</p>
+        <div id="myMonsterZone1" class="myMonsterZone">
+          <p>card title E1</p>
         </div>
       </div>
       <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-        <div class="cardZone">
+        <div class="myMonsterZone">
           <img src="img/monopoly-guy.png" width="10" alt="card image here">
           <div class="caption">
             <p>Tn label</p>
@@ -232,25 +232,37 @@
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div class="myMonsterZone">
           <p>card title E3</p>
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div class="myMonsterZone">
           <p>card title E4</p>
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div class="myMonsterZone">
           <p>card title E5</p>
       </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class="cardZone">
+        <div id="myGraveyard" class="cardZone">
+          <!-- <img src="img/graveyard.jpeg"  width="75" alt="image of graveyard"> -->
           <p>card title E6</p>
+          <!-- Trigger/Open The Modal -->
+          <button id="myBtn">Open Modal</button>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+           <!-- Modal content -->
+           <div class="modal-content">
+             <span class="close">&times;</span>
+             <p>Some text in the Modal..</p>
+           </div>
+
+          </div>
         </div>
-      </div>
+      </div> <!--This closes col-xs-->
     </div>
   </div> <!--This closes inner row-->
   <div class="col-lg-2 grids">
@@ -266,12 +278,12 @@
   <div class="col-lg-8">
   <div class="row myRow">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="myTrapZone">
       <p>card title F1</p>
       </div>
     </div>
     <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="cardZone">
+      <div class="myTrapZone">
         <img src="img/monopoly-guy.png" width="10" alt="card image here">
         <div class="caption">
           <p>Thumbnail label</p>
@@ -281,17 +293,17 @@
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
-        <p>card title C3</p>
+      <div class="myTrapZone">
+        <p>card title F3</p>
       </div>
   </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="myTrapZone">
         <p>card title F4</p>
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="myTrapZone">
         <p>card title F5</p>
       </div>
     </div>
@@ -315,37 +327,34 @@
   <div class="col-lg-8">
     <div class="row myRow">
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div id="myHandZone1"class="myHandZone">
         <p>Hand G1</p>
       </div>
     </div>
       <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-        <div class="cardZone">
-          <img src="img/monopoly-guy.png" width="20" alt="card image here">
-          <div class="caption">
+        <div id="myHandZone2"class="myHandZone">
             <p>Hand G2</p>
-            <p><a href="#" class="btn-xs btn-success" role="button">Summon</a>
+            <p><a class="btn-xs btn-success" role="button">Summon</a>
                <a href="#" class="btn-xs btn-default" role="button">Graveyard</a></p>
-          </div>
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div id="myHandZone3"class="myHandZone">
         <p>Hand G3</p>
       </div>
     </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div id="myHandZone4" class="myHandZone">
           <p>Hand G4</p>
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div id="myHandZone5" class="myHandZone">
           <p>Hand G5</p>
       </div>
     </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class="cardZone">
+        <div id="myHandZone6"class="myHandZone">
           <p></p>
         </div>
       </div>

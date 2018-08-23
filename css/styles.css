@@ -11,6 +11,54 @@
   /*margin: 2px 25px 2px 25px; /* top right bottom left*/
 
 }
+.handZone{
+  background-color: #0000bb55 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkgreen;
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
+}
+
+.myHandZone{
+  background-color: #ffcc9955 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkgreen;
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
+}
+
+.myMonsterZone{
+  background-color: #c0c0c0 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkgreen;
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
+}
+
+.myTrapZone{
+  background-color: #aa000055 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkgreen;
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
+}
+
 
 .grids{
   /* background-color: red; */
@@ -25,4 +73,44 @@
   border-color: red;
   border-style: solid;
   border-width: thin;
+}
+
+
+/* testing modal */
+/* The Modal (background) */
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+   background-color: #fefefe;
+   margin: 15% auto; /* 15% from the top and centered */
+   padding: 20px;
+   border: 1px solid #888;
+   width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
 }
