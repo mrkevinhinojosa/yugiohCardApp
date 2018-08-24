@@ -24,11 +24,6 @@
 //class structure{name:",null", atk:",null", def:", null", type:"monster, magic, trap"};
 // atk def name Cardtype attribute class stars effect flip
 
-var myCard1={Name:"Dark", atk: "2500", def:"2100", type: "monster", effect: false, image:"SDY-006.jpg"};
-var myCard2={Name:"Blue", atk: "3000", def:"2500", type: "monster", effect: false, image:"SDY-001.jpg"};
-var myCard3={name:"Sword", atk: false, def: false, type: "magic", effect: true};
-
-
 
 
 //We need to add image link
@@ -109,17 +104,16 @@ var oppGraveyard = []; //created opponent graveyard
 //add all yugis cards to an array
 var i=1;
 for (i=1; i<=50; i++){
-  console.log(i);
+  // console.log(i);
   if(i<10){     //"SDY_00" +"9"
     myConcat = this["SDY_00"+i];// this lets us work with the variable name
-    console.log(myConcat);
+    // console.log(myConcat); this diplays the variable or card added to deck
     myDeck.push(myConcat);}   //add to the end of the deck array
   else if(i>=10){   //"SDY_0"+"49"
     myConcat = this["SDY_0"+i];
-    console.log(myConcat);
+    // console.log(myConcat);
     myDeck.push(myConcat);}  //add to the end of the deck array}
 }
-
 
 
 //alert(myDeck[1].atk);
@@ -131,65 +125,182 @@ console.log(myHandZone);
 
 var myMonsterZone = document.querySelectorAll(".myMonsterZone")
 
+// myHand[0]=SDY_050;
+// boardUpdate();
+// function boardUpdate(){
+//   var node = document.createElement("IMG");
+//   console.log("my monster is");
+//   console.log(myHand[0]);
+//   var id = myHand[0].id;  //throw the image .id "SDY-000 into variable"
+//    console.log(id);
+//   var daImage2= ["img/"+id+".jpg"];  //make image tag "img/SDY-001.jpg"
+//   console.log(daImage2);
+//   node.setAttribute("src", daImage2);
+//   node.setAttribute("width", "80");
+//   for(i=0; i<0;)
+//   myMonsterZone[3].replaceChild(node, myMonsterZone[3].childNodes[1]) ;
+//
+//   // myMonsters[4];
+// };
 
 
 document.getElementById("player1Deck").addEventListener("click", drawCard); //we find the only instance of player1Deck, when clicked activate function
 
-//this function removes a card from the deck and adds to hand
+//this function removes a card from the deck and adds to hand array
 //neeed to fix, cards still get added
 function drawCard(e){
-  if(5<=(myHand.length)){
+  if(5<(myHand.length)){
     alert("hand is full");
   }else{
     e.preventDefault(); //we need this so the page does not refresh
-    myHand.push(myDeck.shift());    //this removes the head and returns the head
+    myHand.push(myDeck.shift());    //this removes the head and returns the head Array
     console.log("myHand is");
     console.log(myHand);
     console.log("myDeck is");
     console.log(myDeck);
-    var handSize= (myHand.length)-1 ; //myHand is empty array
-    console.log(handSize);
-    var node = document.createElement("IMG")// created <img></img>
-    var daImage= "img/"+ myHand[handSize].id + ".jpg"; //created string "img/SDY-001"
-    console.log(myHand[handSize].id);
-    console.log(daImage);
-    node.setAttribute("src",daImage); //<img src="daImage">
-    node.setAttribute("width","60"); //<img src="daImage" width="80"></img>
-    var textnode = document.createTextNode(myHand[handSize].name);  //name of card
-    console.log(textnode);
-    node.appendChild(textnode);//<p>Dark Magician</p>
-    console.log(node);
-    //matches[handSize].appendChild(node);
-    myHandZone[handSize].replaceChild(node, myHandZone[handSize].childNodes[1]); //this adds <img src="SDY-000"></img>
-    console.log(myHandZone);
-    console.log("drawCard funct called");
-  }
-}
+    updateBoardHand();
 
+  }
+};
+
+//we can still edit the remaining cards
+//we updateeach handzone with each respective mhHand[index]
+  function updateBoardHand(){
+      var newCardIndex= (myHand.length)-1 ; //myHand is empty array// length returns how many, not index
+      console.log(newCardIndex);
+      var i=0;
+      for( i=0; i<=newCardIndex; i++){
+        console.log("loop entered"+i);
+        var node = document.createElement("IMG");// created <img></img>
+        var daImage= "img/"+ myHand[i].id + ".jpg"; //created string "img/SDY-001"
+        console.log(myHand[i].id);
+        console.log(daImage);
+        node.setAttribute("src",daImage); //<img src="daImage">
+        node.setAttribute("width","60"); //<img src="daImage" width="80"></img>
+        var textnode = document.createTextNode(myHand[i].name);  //name of card
+        console.log(textnode);
+        node.appendChild(textnode);//<p>Dark Magician</p>
+        console.log(node);
+        //matches[handSize].appendChild(node);
+        myHandZone[i].replaceChild(node, myHandZone[i].childNodes[1]); //this adds <img src="SDY-000"></img>
+        console.log(myHandZone);
+      }
+      console.log("forloopBoardMonsters counterfinsished at"+i);
+        //this part clears the old images
+      for (i; i<=5;i++){
+        var node= document.createElement("IMG");
+
+        myHandZone[i].replaceChild(node, myHandZone[i].childNodes[1]); //this adds <img src="SDY-000"></img>
+      }
+      console.log("updateBoardHand exit");
+        // boardUpdate();
+  };
 //this function will remove card from hand and into monster card zone
-document.getElementById("myHandZone1").addEventListener("click", summonCard);
-function summonCard(e){
+document.getElementById("myHandZone1").addEventListener("dblclick", summonCard1);
+function summonCard1(e){
+  console.log("summon card funct activated");
   console.log(myMonsters.length);     //myMonsters is an array
   e.preventDefault();//we need this so the page does not refresh
-
   if(5<=myMonsters.length){
     alert("monsterZone card full")
   }else{
-    myMonsters.push(myHand.shift()); //remove from hand and add to mosterzone
+    //splice(index,howMany)
+    var tempMoveFromHandToMonsterZone = myHand.splice(0,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+    myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+    updateBoardMonsters();  }
+    updateBoardHand();} //hand was changed
+
+  document.getElementById("myHandZone2").addEventListener("dblclick", summonCard2);
+  function summonCard2(e){
+      console.log("summon card funct activated");
+      console.log(myMonsters.length);     //myMonsters is an array
+      e.preventDefault();//we need this so the page does not refresh
+      if(5<=myMonsters.length){
+        alert("monsterZone card full")
+      }else{
+        var tempMoveFromHandToMonsterZone = myHand.splice(1,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+        myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+        updateBoardMonsters();  }
+        updateBoardHand();} //hand was changed
+
+      document.getElementById("myHandZone3").addEventListener("dblclick", summonCard3);
+      function summonCard3(e){
+        console.log("summon card funct activated");
+        console.log(myMonsters.length);     //myMonsters is an array
+          e.preventDefault();//we need this so the page does not refresh
+          if(5<=myMonsters.length){
+            alert("monsterZone card full")
+          }else{
+            var tempMoveFromHandToMonsterZone = myHand.splice(2,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+            myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+            updateBoardMonsters();  }
+            updateBoardHand();} //hand was changed
+
+        document.getElementById("myHandZone4").addEventListener("dblclick", summonCard4);
+        function summonCard4(e){
+          console.log("summon card funct activated");
+          console.log(myMonsters.length);     //myMonsters is an array
+            e.preventDefault();//we need this so the page does not refresh
+            if(5<=myMonsters.length){
+              alert("monsterZone card full")
+            }else{
+              var tempMoveFromHandToMonsterZone = myHand.splice(3,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+              myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+              updateBoardMonsters();  }
+              updateBoardHand();} //hand was changed
+
+        document.getElementById("myHandZone5").addEventListener("dblclick", summonCard5);
+        function summonCard5(e){
+          console.log("summon card funct activated");
+          console.log(myMonsters.length);     //myMonsters is an array
+            e.preventDefault();//we need this so the page does not refresh
+            if(5<=myMonsters.length){
+              alert("monsterZone card full")
+            }else{
+              var tempMoveFromHandToMonsterZone = myHand.splice(4,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+              myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+              updateBoardMonsters();  }
+              updateBoardHand();
+          } //hand was changed
+          document.getElementById("myHandZone6").addEventListener("dblclick", summonCard6);
+          function summonCard6(e){
+            console.log("summon card funct activated");
+            console.log(myMonsters.length);     //myMonsters is an array
+              e.preventDefault();//we need this so the page does not refresh
+              if(5<=myMonsters.length){
+                alert("monsterZone card full")
+              }else{
+                var tempMoveFromHandToMonsterZone = myHand.splice(5,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+                myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+                updateBoardMonsters();  }
+                updateBoardHand();} //hand was changed
+
+
+
+
+
+
+
+function updateBoardMonsters(){
+    console.log("updateBoardMonsters entered")
     console.log("myHand is");
     console.log(myHand);
     console.log("myMonsters are");
     console.log(myMonsters);
-    var node = document.createElement("p");  //<p></p>
-    var textnode = document.createTextNode("sent to Summon"); //"textnodecrated"
-    node.appendChild(textnode); //<p>"textnodecrated"</p>
-    console.log(node);
-    myMonsterZone[0].replaceChild(myHandZone[0].childNodes[1], myMonsterZone[0].childNodes[1] );//this gets the <img></img> from hand and adds it here to monsterZone
-//
-    myHandZone[0].replaceChild(node, myHandZone[0].childNodes[1] ); //replaces the hand card //childNode[1] is the tae we are replacing
-    console.log("summon card funct activated");
-   }
-}
+    for(i=0; i<myMonsters.length; i++){
+      var node = document.createElement("IMG");  //<p></p>
+      var daImage2= "img/"+ myMonsters[i].id + ".jpg"; //created string "img/SDY-001.jpg"
+      node.setAttribute("src",daImage2); //daImage holds "img/SDY-000.jpg"
+      node.setAttribute("width", "60")
+      console.log(node);
+      myMonsterZone[i].replaceChild(node, myMonsterZone[i].childNodes[1] );//this gets the <img></img> from hand and adds it here to monsterZone
+  //
+      // myHandZone[0].replaceChild(node, myHandZone[0].childNodes[1] ); //replaces the hand card //childNode[1] is the tae we are replacing
+    }
+    console.log("forloopBoardMonsters counterfinsished at"+i);
+    console.log("updateBoardMonsters exit");
+
+};
 
 
 /*is this needed? we have modal, just add items
@@ -200,23 +311,59 @@ function displayGrave(e){
 }
 */
 
-
-document.getElementById("myHandZone1").addEventListener("mouseover", showDetail);
-function showDetail(e){
+//weclick on zone 3 and give detail the card[2]
+//remember that arrays use index and handZones start at 1
+document.getElementById("myHandZone1").addEventListener("click", showDetail1);
+function showDetail1(e){
   e.preventDefault();//we nned this so the page doe not refresh
   console.log("showDetail funct entered");
-  var node = document.createElement("img");  //created<img><img>
-  var textnode = document.createTextNode("showDetail");
-  //extract img id of the mouserover image
-  node.setAttribute("src", "img/SDY-020.jpg"); //added attributes
-  node.setAttribute("width", "160")
-  node.appendChild(textnode);
-  var theId = document.getElementById("detail");
-  console.log(theId);
-  theId.replaceChild(node, theId.childNodes[1]);
-  console.log("showDetail funct exit");
+  showDetailAll(0);//the index of hand array
+}
+document.getElementById("myHandZone2").addEventListener("click", showDetail2);
+function showDetail2(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAll(1);//the index of hand array
+}
+document.getElementById("myHandZone3").addEventListener("click", showDetail3);
+function showDetail3(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAll(2);//the index of hand array
+}
+document.getElementById("myHandZone4").addEventListener("click", showDetail4);
+function showDetail4(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAll(3);//the index of hand array
+}
+document.getElementById("myHandZone5").addEventListener("click", showDetail5);
+function showDetail5(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAll(4); //the index of hand array
+}
+document.getElementById("myHandZone6").addEventListener("click", showDetail6);
+function showDetail6(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAll(5); //pass the index
 }
 
+//this is used by all showdetails of hand
+function showDetailAll(i){
+  var node = document.createElement("IMG")  //  <img></img>
+  var daImage3= "img/"+ myHand[i].id + ".jpg"; //created string "img/SDY-001.jpg"
+  node.setAttribute("src", daImage3); //<img src="img/SDY"></img>
+  node.setAttribute("width", "200");//<img src="img/SDY" wifth="100"></img>
+  var detailSection = document.getElementById("detail"); //we are selcting the detail section
+  console.log(detailSection);
+  detailSection.replaceChild(node, detailSection.childNodes[1]);
+  console.log("showDetail funct exit");
+};
+
+
+/* this function should add discard/dead cards to array
 document.getElementById().addEventListener("click", sentToGrave);
 function sentToGrave(e){
   e.preventDefault();
@@ -224,7 +371,7 @@ function sentToGrave(e){
 
   console.log("exit sentToGrave")
 }
-
+*/
 
 
 
@@ -235,23 +382,6 @@ function sentToGrave(e){
 // document.getElementById("myHandZone2").addEventListener("mouseover", showDetail2);
 
 
-/* this function removes a card from deck and adds to hand, works kinda ptag
-function drawCard(e){
-  e.preventDefault(); //we need this so the page does not refresh
-  myHand.push(myDeck.shift());    //this removes the head and returns the head
-  console.log("myHand is");
-  console.log(myHand);
-  console.log("myDeck is");
-  console.log(myDeck);
-  var node = document.createElement("p")// created <p></p>
-  var textnode = document.createTextNode(myHand[0].Name);
-  console.log(textnode);
-  node.appendChild(textnode);//<p>Dark</p>
-  matches[0].appendChild(node);
-  console.log(matches);
-  console.log("drawCard funct called");
-}
-*/
 
 
 //this function returns randome number
