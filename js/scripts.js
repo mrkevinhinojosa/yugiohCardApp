@@ -160,6 +160,7 @@ function drawCard(e){
     console.log("myDeck is");
     console.log(myDeck);
     updateBoardHand();
+    updateBoardMonsters();
 
   }
 };

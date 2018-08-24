@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <title>Trading Card Game App</title>
 </head>
-<body>
+<body class="hero-image">
+<!-- <body> -->
 
   <!-- <audio controls>
     <source src="audio/audio.ogg" type="audio/ogg"> -->
@@ -31,12 +32,12 @@
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="row myRow">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=handZone>
+      <div class=opponentHandZone>
         <p>card A1</p>
     </div>
   </div>
     <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="handZone">
+      <div class="opponentHandZone">
         <div class="caption">
           <p>TN label</p>
           <p><a href="#" class="btn-xs btn-success" role="button">Summon</a>
@@ -45,22 +46,22 @@
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=handZone>
+      <div class=opponentHandZone>
       <p>card  A3</p>
     </div>
   </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=handZone>
+      <div class=opponentHandZone>
         <p>card A4</p>
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=handZone>
+      <div class=opponentHandZone>
         <p>card A5</p>
     </div>
   </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="cardZone">
+      <div class="opponentHandZone">
       <p>card A6</p>
       </div>
     </div>
@@ -80,36 +81,35 @@
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <div class="row myRow">
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div class="opponentTrapZone">
         <p>card B1</p>
         </div>
       </div>
       <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-        <div class="cardZone">
-          <div class="caption">
+        <div class="opponentTrapZone">
             <p>TN label</p>
             <p><a href="#" class="btn-xs btn-success" role="button">Summon</a>
                <a href="#" class="btn-xs btn-default" role="button">Graveyard</a></p>
-          </div>
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div class="opponentTrapZone">
           <p>card B3</p>
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div class="opponentTrapZone">
           <p>card B4</p>
         </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class=cardZone>
+        <div class="opponentTrapZone">
           <p>card B5</p>
       </div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-        <div class="cardZone">
+        <div id="opponentDeckZone" class="cardZone">
+          <img src="img/card-back.jpeg" width="55" alt="card rear">
           <p>card B6</p>
         </div>
       </div>
@@ -129,12 +129,12 @@
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="row myRow">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="opponentMonsterZone">
       <p>card C1</p>
       </div>
     </div>
     <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="cardZone">
+      <div class="opponentMonsterZone">
         <div class="caption">
           <p>TN label</p>
           <p><a href="#" class="btn-xs btn-success" role="button">Summon</a>
@@ -143,17 +143,17 @@
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="opponentMonsterZone">
         <p>card C3</p>
       </div>
   </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="opponentMonsterZone">
         <p>card C4</p>
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+      <div class="opponentMonsterZone">
         <p>card C5</p>
       </div>
     </div>
@@ -165,50 +165,52 @@
   </div>
 </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
+    <b>Insert Messeging here</b>
+    <input type="text">
   </div>
 </div>
 
 <!--Row D starts here-->
 <div class="row myRow">
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
     <p>card detail</p>
   </div>
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <div class="row myRow">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="cardZone">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
+      <div class="middleCardZone">
       <p>card D1</p>
     </div>
   </div>
-    <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="cardZone">
-        <p>D2</p>
+    <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 middleGrids">
+      <div class="middleCardZone">
+        <p>D2 diceRoll</p>
       </div>
     </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
+      <div class="middleCardZone">
       <p>card title D3</p>
     </div>
   </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
+      <div class="middleCardZone">
         <p>card title D4</p>
       </div>
     </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class=cardZone>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
+      <div class="middleCardZone">
         <p>card title D5</p>
     </div>
   </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-      <div class="cardZone">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
+      <div class="middleCardZone">
       <p>card title D6</p>
       </div>
     </div>
   </div>
   </div><!--this is the inner row-->
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-    <p>profile section</p>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
+    <p>middle section</p>
   </div>
 </div>
 
@@ -265,7 +267,8 @@
     </div>
   </div> <!--This closes inner row-->
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-    <p>message section</p>
+    <b>Insert message </b>
+    <input type="text">
   </div>
 </div>
 
@@ -356,7 +359,7 @@
     </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids ">
-      <p>message section</p>
+      <p>my lifepoint section</p>
     </div>
   </div>
 </div>
@@ -365,12 +368,23 @@
 
 
 
-  <p>test</p>
 </div>
 
 <footer>
-
-
+  <div myclass="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footer grids">
+      <p><b>How to play<br>
+      1)Click on deck to draw a card/s<br>
+      2)Click once to summon Monster<br>
+      3)Double Click to send a card to the graveyard.</b></p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footer grids">
+      <h4><b>this Yu-Gi-Oh WebApp Was created by Kevin Hinojosa</b></h4>
+      <h4><b><a href="https://kevi123.github.io/">Learn more about my other projects</a></b></h4>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 grids">
+    </div>
+  </div>
 </footer>
 </body>
 <script src="js/scripts.js"></script>  <!--This is how we link Javascript-->

@@ -1,5 +1,5 @@
 .cardZone{
-  background-color: #00bb0055 ;
+  background-color: #00bb0099 ;
   border-style: solid;
   border-width: medium;
   border-color: darkgreen;
@@ -11,8 +11,19 @@
   /*margin: 2px 25px 2px 25px; /* top right bottom left*/
 
 }
-.handZone{
-  background-color: #0000bb55 ;
+.middleCardZone{
+  background-color: #ffd70099 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkgreen;
+  height: 60px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
+}
+.opponentHandZone{
+  background-color: #0000bb99 ;
   border-style: solid;
   border-width: medium;
   border-color: darkgreen;
@@ -24,7 +35,19 @@
 }
 
 .myHandZone{
-  background-color: #ffcc9955 ;
+  background-color: #0000bb99 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkgreen;
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
+}
+
+.opponentMonsterZone{
+  background-color: #c0c0c0 ;
   border-style: solid;
   border-width: medium;
   border-color: darkgreen;
@@ -47,6 +70,18 @@
   /*margin: 2px 25px 2px 25px; /* top right bottom left*/
 }
 
+.opponentTrapZone{
+  background-color: #aa000055 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkgreen;
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+  /*margin: 2px 25px 2px 25px; /* top right bottom left*/
+}
+
 .myTrapZone{
   background-color: #aa000055 ;
   border-style: solid;
@@ -59,6 +94,15 @@
   /*margin: 2px 25px 2px 25px; /* top right bottom left*/
 }
 
+/* for the main background */
+.hero-image{
+  background-image: url("/img/wallpaper2.jpeg");
+  background-color: #cccccc;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .kaibaProfileBackground{
   background-image: url("/img/kaiba-profile.jpeg");
@@ -87,11 +131,26 @@ background-size: cover;
   margin: 5px 0px 5px 0px ;
 }
 
+.middleGrids{
+  /* background-color: red; */
+  border-color: black;
+  border-style: solid;
+  border-width: medium;
+  height: 70px;  /*this is the size of the grid*/
+  margin: 5px 0px 5px 0px ;
+}
+
 .myRow{
   border-color: red;
   border-style: solid;
   border-width: thin;
 }
+
+.footer{
+  /* margin-bottom: 0px; */
+  text-align: center;
+}
+
 
 
 /* testing modal */
