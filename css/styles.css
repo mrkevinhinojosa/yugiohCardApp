@@ -22,6 +22,24 @@
   margin-top: 2px;
   /*margin: 2px 25px 2px 25px; /* top right bottom left*/
 }
+.deckBuilderZone{
+  background-color: #0000bb99 ;
+  border-style: solid;
+  border-width: medium;
+  border-color: darkred;
+  height: 85px;  /* tbis is the size of the card zone, make it smaller than grid*/
+  width: 80px;
+  margin:auto;  /*This centers the cardZOne*/
+  margin-top: 2px;
+}
+.titleDeckBuiler{
+  text-align: center;
+  font-size: 60px;
+  font-weight: 900;
+  color: red;
+  text-shadow: 2px 2px #0000ff;
+}
+
 .opponentHandZone{
   background-color: #0000bb99 ;
   border-style: solid;
@@ -104,6 +122,18 @@
   background-size: cover;
 }
 
+/* //this is for th deck-builder website */
+.hero-image-deckbuilder{
+  background-image: url("/img/wallpaper1.jpeg");
+  background-color: #cccccc;
+  height: 1000px;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 .kaibaProfileBackground{
   background-image: url("/img/kaiba-profile.jpeg");
   background-color: #cccccc;
@@ -151,11 +181,25 @@ background-size: cover;
   text-align: center;
 }
 
-.bitwise{
-  color: gold;
-  
+.lifepoints{
+  background-color: #0000ddcc;
+  color: darkred;
+  font-weight: bold;
+  text-align: center;
 }
 
+.help-text{
+  background-color: #000000cc;
+  color: gold;
+  text-align: center;
+}
+
+.rareness{
+  background-color: black;
+  color: gold;
+  text-align: center;
+  font-weight: bold;
+}
 
 /* testing modal */
 /* The Modal (background) */

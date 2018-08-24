@@ -165,8 +165,9 @@
   </div>
 </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-    <b>Insert Messeging here</b>
-    <input type="text">
+    <!-- <b>Insert Messeging here</b> -->
+    <textarea name="name" rows="3" cols="25">Send a message to your opponent here.</textarea>
+    <!-- <input type="text"> -->
   </div>
 </div>
 
@@ -183,8 +184,8 @@
     </div>
   </div>
     <div class=" col-xs-sm col-sm-2 col-md-2 col-lg-2 middleGrids">
-      <div class="middleCardZone">
-        <p>D2 diceRoll</p>
+      <div id="diceroll" class="middleCardZone">
+        <img src="img/dice.jpg" width="70" alt="dice image">
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 middleGrids">
@@ -269,8 +270,7 @@
     </div>
   </div> <!--This closes inner row-->
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids">
-    <b>Insert message </b>
-    <input type="text">
+      <textarea name="name" id="" cols="25" rows="3">My turn to draw a card</textarea>
   </div>
 </div>
 
@@ -361,7 +361,10 @@
     </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grids ">
-      <p>my lifepoint section</p>
+      <div class="lifepoints">
+      <h4>lifepoints</h4>
+      <h1>8000</h1>
+    </div>
     </div>
   </div>
 </div>
@@ -375,18 +378,18 @@
 <footer>
   <div myclass="row">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footer grids">
-      <p><b>How to play<br>
+      <p class="help-text"><b>How to play<br>
       1)Click on deck to draw a card/s<br>
       2)Click once to summon Monster<br>
       3)Double Click to send a card to the graveyard.</b></p>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footer grids">
-      <h4><b>this Yu-Gi-Oh WebApp Was created by Kevin Hinojosa</b></h4>
-      <h4><b><a href="https://kevi123.github.io/">Learn more about my other projects</a></b></h4>
+      <h4 class="help-text"><b>this Yu-Gi-Oh WebApp Was created by Kevin Hinojosa</b></h4>
+      <h4 class= "help-text"><b><a href="https://kevi123.github.io/">Learn more about my other projects</a></b></h4>
     </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 grids">
-      <p><a href="login.html">Go to login page</a></p>
-      <h1 class="bitwise"><b>Powered by BitWise Games</b></h1>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 grids ">
+      <h4 ><b><a class="help-text" href="login.html">Go to login page</a></b> <b><a class="help-text" href="deckbuilder.html">Build a Deck</a></b></h4>
+      <h1 class="help-text"><b>Powered by BitWise Games</b></h1>
     </div>
   </div>
 </footer>

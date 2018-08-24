@@ -155,6 +155,7 @@ var oppGraveyard = []; //created opponent graveyard
 var oppCurrentHandSize=0;
 
 
+
 // myDeck[0]= myCard1; //this adds card to list
 // myDeck[1]= myCard2;
 // myDeck.push(myCard3);  //.push add card to end of list
@@ -194,6 +195,7 @@ console.log(oppDeck);
 
 
 
+
 var myHandZone = document.querySelectorAll(".myHandZone"); //graball my hand zones
 console.log("matches are");
 console.log(myHandZone);
@@ -205,7 +207,6 @@ document.getElementById("player1Deck").addEventListener("click", drawCard); //we
 //neeed to fix, cards still get added
 function drawCard(e){
   e.preventDefault(); //we need this so the page does not refresh
-
   if(5<(myHand.length)){
     alert("hand is full");
   }else{
@@ -589,21 +590,6 @@ function showDetailAllMonsters(i){
    updateBoardHand();
    updateBoardMonsters();
 }
-   // function sendToGraveAll(j){
-
-
-
-
-
-/* this function should add discard/dead cards to array
-document.getElementById().addEventListener("click", sentToGrave);
-function sentToGrave(e){
-  e.preventDefault();
-  console.log("entered sentToGrave")
-
-  console.log("exit sentToGrave")
-}
-*/
 
 
 
@@ -611,15 +597,13 @@ function sentToGrave(e){
 
 
 
-// document.getElementById("myHandZone2").addEventListener("mouseover", showDetail2);
-
-
-
+document.getElementById("diceroll").addEventListener("click", diceRoll);
 
 //this function returns randome number
   function diceRoll(e){
     e.preventDefault(); //we need this so the page does not refresh
-    var randomNum = Math.floor(Math.random() * 10); //returns a random number from 0-9
+    var randomNum = Math.floor(Math.random() * 6); //returns a random number from 0-9
+    alert("The Dice landed on "+ randomNum)
     console.log(randomNum);
 
 }
