@@ -60,6 +60,24 @@
 }
 
 
+.kaibaProfileBackground{
+  background-image: url("/img/kaiba-profile.jpeg");
+  background-color: #cccccc;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.yugiProfileBackground{
+background-image: url("/img/yugi-profile3.jpeg");
+background-color: #aacccc;
+height: 200px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
 .grids{
   /* background-color: red; */
   border-color: black;

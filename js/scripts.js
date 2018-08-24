@@ -1,5 +1,6 @@
 //Challenges, dom manipulation, getting data in order of the cards,, concatenation to work with varables
 //challenges Show Detail pain in the butt
+//updating the board, many undefined references. it would break again and again
 
 //console.log("test")
 //alert()
@@ -196,7 +197,7 @@ function drawCard(e){
         // boardUpdate();
   };
 //this function will remove card from hand and into monster card zone
-document.getElementById("myHandZone1").addEventListener("dblclick", summonCard1);
+document.getElementById("myHandZone1").addEventListener("click", summonCard1);
 function summonCard1(e){
   console.log("summon card funct activated");
   console.log(myMonsters.length);     //myMonsters is an array
@@ -208,72 +209,78 @@ function summonCard1(e){
     var tempMoveFromHandToMonsterZone = myHand.splice(0,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
     myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
     updateBoardMonsters();  }
-    updateBoardHand();} //hand was changed
+  updateBoardHand();
 
-  document.getElementById("myHandZone2").addEventListener("dblclick", summonCard2);
-  function summonCard2(e){
+  } //hand was changed
+
+document.getElementById("myHandZone2").addEventListener("click", summonCard2);
+function summonCard2(e){
+    console.log("summon card funct activated");
+    console.log(myMonsters.length);     //myMonsters is an array
+    e.preventDefault();//we need this so the page does not refresh
+    if(5<=myMonsters.length){
+      alert("monsterZone card full")
+    }else{
+      var tempMoveFromHandToMonsterZone = myHand.splice(1,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+      myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+      updateBoardMonsters();  }
+    updateBoardHand();
+    } //hand was changed
+document.getElementById("myHandZone3").addEventListener("click", summonCard3);
+function summonCard3(e){
+    console.log("summon card funct activated");
+    console.log(myMonsters.length);     //myMonsters is an array
+    e.preventDefault();//we need this so the page does not refresh
+    if(5<=myMonsters.length){
+        alert("monsterZone card full")
+    }else{
+        var tempMoveFromHandToMonsterZone = myHand.splice(2,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+        myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+        updateBoardMonsters();  }
+      updateBoardHand();
+      } //hand was changed
+
+    document.getElementById("myHandZone4").addEventListener("click", summonCard4);
+    function summonCard4(e){
       console.log("summon card funct activated");
       console.log(myMonsters.length);     //myMonsters is an array
       e.preventDefault();//we need this so the page does not refresh
       if(5<=myMonsters.length){
         alert("monsterZone card full")
       }else{
-        var tempMoveFromHandToMonsterZone = myHand.splice(1,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
-        myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
-        updateBoardMonsters();  }
-        updateBoardHand();} //hand was changed
+        var tempMoveFromHandToMonsterZone = myHand.splice(3,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+          myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+          updateBoardMonsters();  }
+        updateBoardHand();
+      } //hand was changed
 
-      document.getElementById("myHandZone3").addEventListener("dblclick", summonCard3);
-      function summonCard3(e){
+      document.getElementById("myHandZone5").addEventListener("click", summonCard5);
+      function summonCard5(e){
         console.log("summon card funct activated");
         console.log(myMonsters.length);     //myMonsters is an array
-          e.preventDefault();//we need this so the page does not refresh
-          if(5<=myMonsters.length){
-            alert("monsterZone card full")
-          }else{
-            var tempMoveFromHandToMonsterZone = myHand.splice(2,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+        e.preventDefault();//we need this so the page does not refresh
+        if(5<=myMonsters.length){
+          alert("monsterZone card full")
+        }else{
+          var tempMoveFromHandToMonsterZone = myHand.splice(4,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
             myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
             updateBoardMonsters();  }
-            updateBoardHand();} //hand was changed
+          updateBoardHand();
+        } //hand was changed
 
-        document.getElementById("myHandZone4").addEventListener("dblclick", summonCard4);
-        function summonCard4(e){
-          console.log("summon card funct activated");
-          console.log(myMonsters.length);     //myMonsters is an array
-            e.preventDefault();//we need this so the page does not refresh
-            if(5<=myMonsters.length){
-              alert("monsterZone card full")
-            }else{
-              var tempMoveFromHandToMonsterZone = myHand.splice(3,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
-              myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
-              updateBoardMonsters();  }
-              updateBoardHand();} //hand was changed
-
-        document.getElementById("myHandZone5").addEventListener("dblclick", summonCard5);
-        function summonCard5(e){
-          console.log("summon card funct activated");
-          console.log(myMonsters.length);     //myMonsters is an array
-            e.preventDefault();//we need this so the page does not refresh
-            if(5<=myMonsters.length){
-              alert("monsterZone card full")
-            }else{
-              var tempMoveFromHandToMonsterZone = myHand.splice(4,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
-              myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
-              updateBoardMonsters();  }
-              updateBoardHand();
-          } //hand was changed
-          document.getElementById("myHandZone6").addEventListener("dblclick", summonCard6);
-          function summonCard6(e){
-            console.log("summon card funct activated");
-            console.log(myMonsters.length);     //myMonsters is an array
-              e.preventDefault();//we need this so the page does not refresh
-              if(5<=myMonsters.length){
-                alert("monsterZone card full")
-              }else{
-                var tempMoveFromHandToMonsterZone = myHand.splice(5,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
-                myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
-                updateBoardMonsters();  }
-                updateBoardHand();} //hand was changed
+        document.getElementById("myHandZone6").addEventListener("click", summonCard6);
+        function summonCard6(e){
+        console.log("summon card funct activated");
+        console.log(myMonsters.length);     //myMonsters is an array
+        e.preventDefault();//we need this so the page does not refresh
+        if(5<=myMonsters.length){
+          alert("monsterZone card full")
+        }else{
+        var tempMoveFromHandToMonsterZone = myHand.splice(5,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+        myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+        updateBoardMonsters();  }
+      updateBoardHand();
+      } //hand was changed
 
 
 
@@ -297,70 +304,111 @@ function updateBoardMonsters(){
   //
       // myHandZone[0].replaceChild(node, myHandZone[0].childNodes[1] ); //replaces the hand card //childNode[1] is the tae we are replacing
     }
+    for (i; i<=4;i++){
+      var node= document.createElement("IMG");
+      myMonsterZone[i].replaceChild(node, myMonsterZone[i].childNodes[1]); //this adds <img src="SDY-000"></img>
+    }
     console.log("forloopBoardMonsters counterfinsished at"+i);
     console.log("updateBoardMonsters exit");
 
 };
 
 
-/*is this needed? we have modal, just add items
-document.getElementById("myGraveyard").addEventListener("click", displayGrave);
-function displayGrave(e){
-  e.preventDefault();
-  console.log("entered displaygrave funct");
-}
-*/
 
 //weclick on zone 3 and give detail the card[2]
 //remember that arrays use index and handZones start at 1
-document.getElementById("myHandZone1").addEventListener("click", showDetail1);
+document.getElementById("myHandZone1").addEventListener("mouseover", showDetail1);
 function showDetail1(e){
   e.preventDefault();//we nned this so the page doe not refresh
   console.log("showDetail funct entered");
   showDetailAll(0);//the index of hand array
 }
-document.getElementById("myHandZone2").addEventListener("click", showDetail2);
+document.getElementById("myHandZone2").addEventListener("mouseover", showDetail2);
 function showDetail2(e){
   e.preventDefault();//we nned this so the page doe not refresh
   console.log("showDetail funct entered");
   showDetailAll(1);//the index of hand array
 }
-document.getElementById("myHandZone3").addEventListener("click", showDetail3);
+document.getElementById("myHandZone3").addEventListener("mouseover", showDetail3);
 function showDetail3(e){
   e.preventDefault();//we nned this so the page doe not refresh
   console.log("showDetail funct entered");
   showDetailAll(2);//the index of hand array
 }
-document.getElementById("myHandZone4").addEventListener("click", showDetail4);
+document.getElementById("myHandZone4").addEventListener("mouseover", showDetail4);
 function showDetail4(e){
   e.preventDefault();//we nned this so the page doe not refresh
   console.log("showDetail funct entered");
   showDetailAll(3);//the index of hand array
 }
-document.getElementById("myHandZone5").addEventListener("click", showDetail5);
+document.getElementById("myHandZone5").addEventListener("mouseover", showDetail5);
 function showDetail5(e){
   e.preventDefault();//we nned this so the page doe not refresh
   console.log("showDetail funct entered");
   showDetailAll(4); //the index of hand array
 }
-document.getElementById("myHandZone6").addEventListener("click", showDetail6);
+document.getElementById("myHandZone6").addEventListener("mouseover", showDetail6);
 function showDetail6(e){
   e.preventDefault();//we nned this so the page doe not refresh
   console.log("showDetail funct entered");
   showDetailAll(5); //pass the index
 }
 
-//this is used by all showdetails of hand
+//this is used by all showdetails of hand// for hand only!!
 function showDetailAll(i){
   var node = document.createElement("IMG")  //  <img></img>
   var daImage3= "img/"+ myHand[i].id + ".jpg"; //created string "img/SDY-001.jpg"
   node.setAttribute("src", daImage3); //<img src="img/SDY"></img>
-  node.setAttribute("width", "200");//<img src="img/SDY" wifth="100"></img>
+  node.setAttribute("width", "250");//<img src="img/SDY" wifth="100"></img>
   var detailSection = document.getElementById("detail"); //we are selcting the detail section
   console.log(detailSection);
   detailSection.replaceChild(node, detailSection.childNodes[1]);
   console.log("showDetail funct exit");
 };
+
+
+
+//
+// on summonCard1(e){
+//   console.log("summon card funct activated");
+//   console.log(myMonsters.length);     //myMonsters is an array
+//   e.preventDefault();//we need this so the page does not refresh
+//   if(5<=myMonsters.length){
+//     alert("monsterZone card full")
+//   }else{
+//     //splice(index,howMany)
+//     var tempMoveFromHandToMonsterZone = myHand.splice(0,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+//     myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+//     updateBoardMonsters();  }
+//     updateBoardHand();
+//   } //hand was changed
+
+// is this needed? we have modal, just add items
+ document.getElementById("myMonsterZone1").addEventListener("dblclick", sendToGrave);
+ function sendToGrave(e){
+   e.preventDefault();
+   console.log("entered displaygrave funct");
+   console.log("the grave is")
+   console.log(myGraveyard);
+   var tempMoveToGraveYard = myMonsters.splice(0,1); //this give us the card we want
+   myGraveyard.push((tempMoveToGraveYard[0])); //this actually puts the card in the grave array
+   console.log("my Graveyard is after push");
+   console.log(myGraveyard);
+   var node4 =  document.createElement("IMG");
+   var indexLastGrave= myGraveyard.length-1;
+   var daImage4= "img/"+ myGraveyard[indexLastGrave].id + ".jpg"; //created string "img/SDY-001.jpg"
+   node4.setAttribute("src", daImage4); //<img src="img/SDY"></img>
+   node4.setAttribute("width", "65");//<img src="img/SDY" wifth="100"></img>
+   var theGraveYardSection = document.getElementById("myGraveyard");
+   theGraveYardSection.replaceChild(node4, theGraveYardSection.childNodes[1]);
+   // sendToGraveAll(0); //PASS THE index
+   updateBoardHand();
+   updateBoardMonsters();
+}
+   // function sendToGraveAll(j){
+
+
+
 
 
 /* this function should add discard/dead cards to array
