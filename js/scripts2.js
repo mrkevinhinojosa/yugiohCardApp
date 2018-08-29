@@ -362,7 +362,7 @@ function showDetail33(e){
 
 
 
-//this is used by all showdetails of hand// for hand only!!
+//this is used by all showdetails of hand// for hand only!! everything in deckbuilder is the hand
 function showDetailAll(i){
   var node = document.createElement("IMG")  //  <img></img>
   var daImage3= "img/"+ builderHand[i].id + ".jpg"; //created string "img/SDY-001.jpg"
@@ -375,14 +375,13 @@ function showDetailAll(i){
   ATKDetail(i);
 };
 
-
 function ATKDetail(i){
-  var node = document.createElement("h4")  //  <img></img>
-  node.setAttribute("class", "rareness")
-  var rarity=  builderHand[i].rarity ; //created string "img/SDY-001.jpg"
+  var node = document.createElement("h4")  //  <h4></h4>
+  node.setAttribute("class", "rareness") //<h4 class="rareness"></h4>
+  var rarity=  builderHand[i].rarity ; //created string "common"
   var createTextNode = document.createTextNode(rarity)
-  node.appendChild(createTextNode);
-  var detailSection = document.getElementById("detailATK"); //we are selcting the detail section
+  node.appendChild(createTextNode); //<h4 class="rareness"> common </h4>
+  var detailSection = document.getElementById("detailATK"); //we are selecting the detail section
   console.log(detailSection);
   detailSection.replaceChild(node, detailSection.childNodes[1]);
   console.log("showDetail funct exit");

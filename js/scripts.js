@@ -544,10 +544,43 @@ function showDetailAllMonsters(i){
 
 
 
+///the following work to show detail of trap and magic card zones
+document.getElementById("myTrapZone1").addEventListener("mouseover", showDetailTrap1);
+function showDetailTrap1(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(0);//the index of hand array
+}
+document.getElementById("myTrapZone2").addEventListener("mouseover", showDetailTrap2);
+function showDetailTrap2(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(1);//the index of hand array
+}
+document.getElementById("myTrapZone3").addEventListener("mouseover", showDetailTrap3);
+function showDetailTrap3(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(2);//the index of hand array
+}
+document.getElementById("myTrapZone4").addEventListener("mouseover", showDetailTrap4);
+function showDetailTrap4(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(3);//the index of hand array
+}
+document.getElementById("myTrapZone5").addEventListener("mouseover", showDetailTrap5);
+function showDetailTrap5(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(4);//the index of hand array
+}
 
 
-
-
+//this needs to be finished
+function showDetailAllTrap(i){
+  console.log("trapdetail called");
+}
 
 
 
@@ -569,27 +602,58 @@ function showDetailAllMonsters(i){
 //   } //hand was changed
 
 // is this needed? we have modal, just add items
- document.getElementById("myMonsterZone1").addEventListener("dblclick", sendToGrave);
- function sendToGrave(e){
+ document.getElementById("myMonsterZone1").addEventListener("dblclick", sendToGrave1);
+ function sendToGrave1(e){
    e.preventDefault();
-   console.log("entered displaygrave funct");
-   console.log("the grave is")
-   console.log(myGraveyard);
-   var tempMoveToGraveYard = myMonsters.splice(0,1); //this give us the card we want
-   myGraveyard.push((tempMoveToGraveYard[0])); //this actually puts the card in the grave array
-   console.log("my Graveyard is after push");
-   console.log(myGraveyard);
-   var node4 =  document.createElement("IMG");
-   var indexLastGrave= myGraveyard.length-1;
-   var daImage4= "img/"+ myGraveyard[indexLastGrave].id + ".jpg"; //created string "img/SDY-001.jpg"
-   node4.setAttribute("src", daImage4); //<img src="img/SDY"></img>
-   node4.setAttribute("width", "65");//<img src="img/SDY" wifth="100"></img>
-   var theGraveYardSection = document.getElementById("myGraveyard");
-   theGraveYardSection.replaceChild(node4, theGraveYardSection.childNodes[1]);
-   // sendToGraveAll(0); //PASS THE index
-   updateBoardHand();
-   updateBoardMonsters();
+   // console.log(myGraveyard);
+   sendToGraveAll(0); //pass the moster zone index
 }
+
+document.getElementById("myMonsterZone2").addEventListener("dblclick", sendToGrave2);
+function sendToGrave2(e){
+  e.preventDefault();
+  // console.log(myGraveyard);
+  sendToGraveAll(1); //pass the moster zone index
+}
+
+document.getElementById("myMonsterZone3").addEventListener("dblclick", sendToGrave3);
+function sendToGrave3(e){
+  e.preventDefault();
+  sendToGraveAll(2); //pass the moster zone index
+}
+
+document.getElementById("myMonsterZone4").addEventListener("dblclick", sendToGrave4);
+function sendToGrave4(e){
+  e.preventDefault();
+  sendToGraveAll(3); //pass the moster zone index
+}
+
+document.getElementById("myMonsterZone5").addEventListener("dblclick", sendToGrave5);
+function sendToGrave5(e){
+  e.preventDefault();
+  sendToGraveAll(4); //pass the moster zone index
+}
+
+//this function will be used to send monster to grave, passed the index
+function sendToGraveAll(monsterIndex){
+    var tempMoveToGraveYard = myMonsters.splice(monsterIndex,1); //this give us the card we want
+    myGraveyard.push((tempMoveToGraveYard[0])); //this actually puts the card in the grave array
+    console.log("my Graveyard is after push");
+    console.log(myGraveyard);
+    var node4 =  document.createElement("IMG");
+    var indexLastGrave= myGraveyard.length-1;
+    var daImage4= "img/"+ myGraveyard[indexLastGrave].id + ".jpg"; //created string "img/SDY-001.jpg"
+    node4.setAttribute("src", daImage4); //<img src="img/SDY"></img>
+    node4.setAttribute("width", "65");//<img src="img/SDY" wifth="100"></img>
+    var theGraveYardSection = document.getElementById("myGraveyard");
+    theGraveYardSection.replaceChild(node4, theGraveYardSection.childNodes[1]);
+    // sendToGraveAll(0); //PASS THE index
+    updateBoardHand();
+    updateBoardMonsters();
+}
+
+
+
 
 
 
@@ -602,15 +666,27 @@ document.getElementById("diceroll").addEventListener("click", diceRoll);
 //this function returns randome number
   function diceRoll(e){
     e.preventDefault(); //we need this so the page does not refresh
-    var randomNum = Math.floor(Math.random() * 6); //returns a random number from 0-9
-    alert("The Dice landed on "+ randomNum)
-    console.log(randomNum);
-
+    var randomNum=0;
+    while(randomNum==0){//this line prevents a 0 being displayed
+      randomNum = Math.floor(Math.random() * 7); //returns a random number from 0-6
+    }   //math.random() returns floating numn 0-.999999999, including 0 but not 1 or [0-1)
+    alert("The Dice landed on "+ randomNum);
 }
 
 
+document.getElementById("coinflip").addEventListener("click", coinFlip);
 
-
+//this function returns randome number
+  function coinFlip(e){
+    e.preventDefault(); //we need this so the page does not refresh
+    var randomNum = Math.random() ; //returns a random number from 0-9
+    if (randomNum<.5) {
+      alert("TAILS");
+    }else {
+      alert("HEADS")
+    }
+    console.log(randomNum);
+}
 
 //testing Modal
 // Get the modal
