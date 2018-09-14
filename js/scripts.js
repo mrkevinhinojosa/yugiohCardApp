@@ -84,58 +84,6 @@ var SDY_049 = {id:"SDY-049", name:"Castle Walls", 	           type:"Trap", 	    
 var SDY_050 = {id:"SDY-050", name:"Ultimate Offering", 	       type:"Trap", 		           attribute:"Continuous",                                                        	 rarity:"Common",     description:"You can pay 500 Life Points to Normal Summon or Set 1 extra monster. You can only activate this effect during your Main Phase or your opponent's Battle Phase."};
 
 
-//These are kaibas deck cards
-var SDK_001 = {id:"SDK-001"};
-var SDK_002 = {id:"SDK-002"};
-var SDK_003 = {id:"SDK-003"};
-var SDK_004 = {id:"SDK-004"};
-var SDK_005 = {id:"SDK-005"};
-var SDK_006 = {id:"SDK-006"};
-var SDK_007 = {id:"SDK-007"};
-var SDK_008 = {id:"SDK-008"};
-var SDK_009 = {id:"SDK-009"};
-var SDK_010 = {id:"SDK-010"};
-var SDK_011 = {id:"SDK-011"};
-var SDK_012 = {id:"SDK-012"};
-var SDK_013 = {id:"SDK-013"};
-var SDK_014 = {id:"SDK-014"};
-var SDK_015 = {id:"SDK-015"};
-var SDK_016 = {id:"SDK-016"};
-var SDK_017 = {id:"SDK-017"};
-var SDK_018 = {id:"SDK-018"};
-var SDK_019 = {id:"SDK-019"};
-var SDK_020 = {id:"SDK-020"};
-var SDK_021 = {id:"SDK-021"};
-var SDK_022 = {id:"SDK-022"};
-var SDK_023 = {id:"SDK-023"};
-var SDK_024 = {id:"SDK-024"};
-var SDK_025 = {id:"SDK-025"};
-var SDK_026 = {id:"SDK-026"};
-var SDK_027 = {id:"SDK-027"};
-var SDK_028 = {id:"SDK-028"};
-var SDK_029 = {id:"SDK-029"};
-var SDK_030 = {id:"SDK-030"};
-var SDK_031 = {id:"SDK-031"};
-var SDK_032 = {id:"SDK-032"};
-var SDK_033 = {id:"SDK-033"};
-var SDK_034 = {id:"SDK-034"};
-var SDK_035 = {id:"SDK-035"};
-var SDK_036 = {id:"SDK-036"};
-var SDK_037 = {id:"SDK-037"};
-var SDK_038 = {id:"SDK-038"};
-var SDK_039 = {id:"SDK-039"};
-var SDK_040 = {id:"SDK-040"};
-var SDK_041 = {id:"SDK-041"};
-var SDK_042 = {id:"SDK-042"};
-var SDK_043 = {id:"SDK-043"};
-var SDK_044 = {id:"SDK-044"};
-var SDK_045 = {id:"SDK-045"};
-var SDK_046 = {id:"SDK-046"};
-var SDK_047 = {id:"SDK-047"};
-var SDK_048 = {id:"SDK-048"};
-var SDK_049 = {id:"SDK-049"};
-var SDK_050 = {id:"SDK-050"};
-
 
 
 
@@ -147,12 +95,6 @@ var myGraveyard = []; //created graveyard
 var currentHandSize= 0; //this counter holds the size of your hand
 
 
-var oppDeck = [];// created opponent empty deck []
-var oppHand = [];// created opponent empty hand []
-var oppMonsters = []; // created opponent monster zone []
-var oppTraps= []; //created array for opponent trap zone[]
-var oppGraveyard = []; //created opponent graveyard
-var oppCurrentHandSize=0;
 
 
 
@@ -177,22 +119,6 @@ for (i=1; i<=50; i++){
   }
 };
 console.log(myDeck);
-
-//this is for kaibas deck, add all his cards to his deck
-for (i=1;i<=50;i++){
-  // console.log(i);
-  if(i<10){
-    myConcat2 = this["SDK_00"+i];
-    // console.log(myConcat2);
-    oppDeck.push(myConcat2);
-  }
-  else if(i>=10){
-    myConcat2 = this["SDK_0"+i];
-    oppDeck.push(myConcat2);
-  }
-};
-console.log(oppDeck);
-
 
 
 
@@ -221,26 +147,7 @@ function drawCard(e){
   }
 };
 
-var opponentHandZone= document.querySelectorAll(".opponentHandZone"); //grab all opponent hand zones
-console.log("opp hand zone are");
-console.log(opponentHandZone);
-var opponentMonsterZone = document.querySelectorAll(".opponentMonsterZone");//grab all opponents monsters zones
-//this function adds cards to opphand
-document.getElementById("opponentDeckZone").addEventListener("click", opponentDrawCard);
-function opponentDrawCard(e){
-  if(5<(oppHand.length)){
-    alert("Oppenent hand is full");
-  }else{
-    e.preventDefault();
-    oppHand.push(oppDeck.shift()); //remove from opp deck and add to oppHandarray
-    console.log("oppHand is");
-    console.log(oppHand);
-    console.log("oppDeck is");
-    console.log(oppDeck);
-    opponentUpdateBoardHand();
-  //  updateBoardMonsters();    //we need this function
-  }
-}
+
 //
 //we can still edit the remaining cards
 //we updateeach handzone with each respective mhHand[index]
@@ -275,43 +182,7 @@ function opponentDrawCard(e){
         // boardUpdate();
   };
 
-
-  function opponentUpdateBoardHand(){
-      var oppNewCardIndex= (oppHand.length)-1 ; //myHand is empty array// length returns how many, not index
-      console.log(oppNewCardIndex);
-      var i=0;
-      for( i=0; i<=oppNewCardIndex; i++){
-        console.log("opp update handloop entered"+i);
-        var node = document.createElement("IMG");// created <img></img>
-        var daImage= "img/"+ oppHand[i].id + ".jpg"; //created string "img/SDY-001"
-        console.log(oppHand[i].id);
-        console.log(daImage);
-        node.setAttribute("src",daImage); //<img src="daImage">
-        node.setAttribute("width","60"); //<img src="daImage" width="80"></img>
-        var textnode = document.createTextNode(oppHand[i].name);  //name of card
-        console.log(textnode);
-        node.appendChild(textnode);//<p>Dark Magician</p>
-        console.log(node);
-        //matches[handSize].appendChild(node);
-        opponentHandZone[i].replaceChild(node, opponentHandZone[i].childNodes[1]); //this adds <img src="SDY-000"></img>
-        console.log(myHandZone);
-      }
-      console.log("forloopOppBoardMonsters counterfinsished at"+i);
-        //this part clears the old images
-      for (i; i<=5;i++){
-        var node= document.createElement("IMG");
-
-        opponentHandZone[i].replaceChild(node, opponentHandZone[i].childNodes[1]); //this adds <img src="SDY-000"></img>
-      }
-      console.log("update oppBoardHand exit");
-        // boardUpdate();
-  };
-
-
-
-
-
-
+//this updates the opponents hand
 
 
 
@@ -401,9 +272,7 @@ function summonCard6(e){
         myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
         updateBoardMonsters();  }
       updateBoardHand();
-      } //hand was changed
-
-
+} //hand was changed
 
 
 
@@ -433,6 +302,12 @@ function updateBoardMonsters(){
     console.log("updateBoardMonsters exit");
 
 };
+
+
+
+
+
+
 
 
 
@@ -544,52 +419,110 @@ function showDetailAllMonsters(i){
 
 
 
+///the following work to show detail of trap and magic card zones
+document.getElementById("myTrapZone1").addEventListener("mouseover", showDetailTrap1);
+function showDetailTrap1(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(0);//the index of hand array
+}
+document.getElementById("myTrapZone2").addEventListener("mouseover", showDetailTrap2);
+function showDetailTrap2(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(1);//the index of hand array
+}
+document.getElementById("myTrapZone3").addEventListener("mouseover", showDetailTrap3);
+function showDetailTrap3(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(2);//the index of hand array
+}
+document.getElementById("myTrapZone4").addEventListener("mouseover", showDetailTrap4);
+function showDetailTrap4(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(3);//the index of hand array
+}
+document.getElementById("myTrapZone5").addEventListener("mouseover", showDetailTrap5);
+function showDetailTrap5(e){
+  e.preventDefault();//we nned this so the page doe not refresh
+  console.log("showDetail funct entered");
+  showDetailAllTrap(4);//the index of hand array
+}
+
+
+//this displays traps on detail section, we pass the index of trap card to be displayed
+function showDetailAllTrap(i){
+  console.log("trapdetail called");
+    var node = document.createElement("IMG")  //  <img></img>
+    var daImage5= "img/"+ myTraps[i].id + ".jpg"; //created string "img/SDY-001.jpg"
+    node.setAttribute("src", daImage5); //<img src="img/SDY"></img>
+    node.setAttribute("width", "250");//<img src="img/SDY" wifth="100"></img>
+    var detailSection = document.getElementById("detail"); //we are selcting the detail section
+    console.log(detailSection);
+    detailSection.replaceChild(node, detailSection.childNodes[1]);//this replaces current image
+    console.log("showDetail funct exit");
+  };
 
 
 
 
 
 
-
-
-
-//
-// on summonCard1(e){
-//   console.log("summon card funct activated");
-//   console.log(myMonsters.length);     //myMonsters is an array
-//   e.preventDefault();//we need this so the page does not refresh
-//   if(5<=myMonsters.length){
-//     alert("monsterZone card full")
-//   }else{
-//     //splice(index,howMany)
-//     var tempMoveFromHandToMonsterZone = myHand.splice(0,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
-//     myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
-//     updateBoardMonsters();  }
-//     updateBoardHand();
-//   } //hand was changed
 
 // is this needed? we have modal, just add items
- document.getElementById("myMonsterZone1").addEventListener("dblclick", sendToGrave);
- function sendToGrave(e){
+ document.getElementById("myMonsterZone1").addEventListener("dblclick", sendToGrave1);
+ function sendToGrave1(e){
    e.preventDefault();
-   console.log("entered displaygrave funct");
-   console.log("the grave is")
-   console.log(myGraveyard);
-   var tempMoveToGraveYard = myMonsters.splice(0,1); //this give us the card we want
-   myGraveyard.push((tempMoveToGraveYard[0])); //this actually puts the card in the grave array
-   console.log("my Graveyard is after push");
-   console.log(myGraveyard);
-   var node4 =  document.createElement("IMG");
-   var indexLastGrave= myGraveyard.length-1;
-   var daImage4= "img/"+ myGraveyard[indexLastGrave].id + ".jpg"; //created string "img/SDY-001.jpg"
-   node4.setAttribute("src", daImage4); //<img src="img/SDY"></img>
-   node4.setAttribute("width", "65");//<img src="img/SDY" wifth="100"></img>
-   var theGraveYardSection = document.getElementById("myGraveyard");
-   theGraveYardSection.replaceChild(node4, theGraveYardSection.childNodes[1]);
-   // sendToGraveAll(0); //PASS THE index
-   updateBoardHand();
-   updateBoardMonsters();
+   // console.log(myGraveyard);
+   sendToGraveAll(0); //pass the moster zone index
 }
+
+document.getElementById("myMonsterZone2").addEventListener("dblclick", sendToGrave2);
+function sendToGrave2(e){
+  e.preventDefault();
+  sendToGraveAll(1); //pass the moster zone index
+}
+
+document.getElementById("myMonsterZone3").addEventListener("dblclick", sendToGrave3);
+function sendToGrave3(e){
+  e.preventDefault();
+  sendToGraveAll(2); //pass the moster zone index
+}
+
+document.getElementById("myMonsterZone4").addEventListener("dblclick", sendToGrave4);
+function sendToGrave4(e){
+  e.preventDefault();
+  sendToGraveAll(3); //pass the moster zone index
+}
+
+document.getElementById("myMonsterZone5").addEventListener("dblclick", sendToGrave5);
+function sendToGrave5(e){
+  e.preventDefault();
+  sendToGraveAll(4); //pass the moster zone index
+}
+
+//this function will be used to send monster to grave, passed the index
+function sendToGraveAll(monsterIndex){
+    var tempMoveToGraveYard = myMonsters.splice(monsterIndex,1); //this give us the card we want
+    myGraveyard.push((tempMoveToGraveYard[0])); //this actually puts the card in the grave array
+    console.log("my Graveyard is after push");
+    console.log(myGraveyard);
+    var node4 =  document.createElement("IMG");
+    var indexLastGrave= myGraveyard.length-1;
+    var daImage4= "img/"+ myGraveyard[indexLastGrave].id + ".jpg"; //created string "img/SDY-001.jpg"
+    node4.setAttribute("src", daImage4); //<img src="img/SDY"></img>
+    node4.setAttribute("width", "65");//<img src="img/SDY" wifth="100"></img>
+    var theGraveYardSection = document.getElementById("myGraveyard");
+    theGraveYardSection.replaceChild(node4, theGraveYardSection.childNodes[1]);
+    // sendToGraveAll(0); //PASS THE index
+    updateBoardHand();
+    updateBoardMonsters();
+}
+
+
+
 
 
 
@@ -602,15 +535,27 @@ document.getElementById("diceroll").addEventListener("click", diceRoll);
 //this function returns randome number
   function diceRoll(e){
     e.preventDefault(); //we need this so the page does not refresh
-    var randomNum = Math.floor(Math.random() * 6); //returns a random number from 0-9
-    alert("The Dice landed on "+ randomNum)
-    console.log(randomNum);
-
+    var randomNum=0;
+    while(randomNum==0){//this line prevents a 0 being displayed
+      randomNum = Math.floor(Math.random() * 7); //returns a random number from 0-6
+    }   //math.random() returns floating numn 0-.999999999, including 0 but not 1 or [0-1)
+    alert("The Dice landed on "+ randomNum);
 }
 
 
+document.getElementById("coinflip").addEventListener("click", coinFlip);
 
-
+//this function returns randome number
+function coinFlip(e){
+    e.preventDefault(); //we need this so the page does not refresh
+    var randomNum = Math.random() ; //returns a random number from 0-9
+    if (randomNum<.5) {
+      alert("TAILS");
+    }else {
+      alert("HEADS")
+    }
+    console.log(randomNum);
+}
 
 //testing Modal
 // Get the modal

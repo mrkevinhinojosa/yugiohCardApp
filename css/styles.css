@@ -184,6 +184,7 @@ background-size: cover;
 .lifepoints{
   background-color: #0000ddcc;
   color: darkred;
+  text-shadow: 2px 2px gold;
   font-weight: bold;
   text-align: center;
 }
