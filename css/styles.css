@@ -136,7 +136,7 @@
 
 
 .kaibaProfileBackground{
-  background-image: url("/img/kaiba-profile.jpeg");
+  background-image: url("https://kevi123.github.io/yugiohCardApp//img/kaiba-profile.jpeg");
   background-color: #cccccc;
   height: 200px;
   background-position: center;
@@ -145,7 +145,7 @@
 }
 
 .yugiProfileBackground{
-background-image: url("/img/yugi-profile3.jpeg");
+background-image: url("https://kevi123.github.io/yugiohCardApp//img/yugi-profile3.jpeg");
 background-color: #aacccc;
 height: 200px;
 background-position: center;
