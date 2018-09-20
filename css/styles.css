@@ -115,7 +115,7 @@
 /* test please change back to wallpaper2*/
 /* for the main background */
 .hero-image{
-  background-image: url("/img/wallpaper5.jpg");
+  background-image: url("https://kevi123.github.io/yugiohCardApp//img/wallpaper5.jpg");
   background-color: #cccccc;
   height: 200px;
   background-position: center;
@@ -125,7 +125,7 @@
 
 /* //this is for th deck-builder website */
 .hero-image-deckbuilder{
-  background-image: url("/img/wallpaper1.jpeg");
+  background-image: url("https://kevi123.github.io/yugiohCardApp/img/wallpaper1.jpeg");
   background-color: #cccccc;
   height: 1000px;
   width: auto;
