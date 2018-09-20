@@ -361,7 +361,6 @@ function showDetail33(e){
 
 
 
-
 //this is used by all showdetails of hand// for hand only!! everything in deckbuilder is the hand
 function showDetailAll(i){
   var node = document.createElement("IMG")  //  <img></img>
