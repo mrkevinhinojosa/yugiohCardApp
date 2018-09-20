@@ -78,11 +78,13 @@ for (i=1;i<=50;i++){
 };
 console.log(oppDeck);
 
+
 var opponentHandZone= document.querySelectorAll(".opponentHandZone"); //grab all opponent hand zones
 console.log("opp hand zone are");
 console.log(opponentHandZone);
 var opponentMonsterZone = document.querySelectorAll(".opponentMonsterZone");//grab all opponents monsters zones
 //this function adds cards to opphand
+
 document.getElementById("opponentDeckZone").addEventListener("click", opponentDrawCard);
 function opponentDrawCard(e){
   if(5<(oppHand.length)){
@@ -136,21 +138,6 @@ function opponentUpdateBoardHand(){
 
 
 
-//this function will remove opponent card from hand and into monster card zone
-document.getElementById("opponentHandZone1").addEventListener("click", summonCard1);
-function summonCard1(e){
-  console.log("summon card funct activated");
-  console.log(myMonsters.length);     //myMonsters is an array
-  e.preventDefault();//we need this so the page does not refresh
-  if(5<=myMonsters.length){
-    alert("monsterZone card full")
-  }else{
-    //splice(index,howMany)
-    var tempMoveFromHandToMonsterZone = myHand.splice(0,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
-    myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
-    updateBoardMonsters();  }
-  updateBoardHand();
-} //hand was changed
 
 
   /////This is beta
@@ -174,7 +161,7 @@ function summonCard1(e){
 
 
     //thsi function needs to be finsihed
-    function opponentUpdateBoardMonsters(){
+  function opponentUpdateBoardMonsters(){
       alert("entererd opp updateBoardMonsters");
       console.log("oppHand is");
       console.log(oppHand);
@@ -186,11 +173,71 @@ function summonCard1(e){
         node.setAttribute("src", image );
         node.setAttribute("width", "60");
         console.log(node);
-        opponentMonsterZone[i].replaceChild(node, opponnentMonsterZone[i].childNodes[1]);
+        opponentMonsterZone[i].replaceChild(node, opponentMonsterZone[i].childNodes[1]);
       }
       for (i; i<=4;i++){
         var node= document.createElement("IMG");
         opponentMonsterZone[i].replaceChild(node,opponentMonsterZone[i].childNodes[1]);
       }
 
+      console.log("forloopBoardMonsters counterfinsished at"+i);
+      console.log("updateBoardMonsters exit");
+    };
+
+
+
+
+
+
+
+
+    //weclick on zone 3 and give detail the card[2]
+    //remember that arrays use index and handZones start at 1
+    document.getElementById("opponentHandZone1").addEventListener("mouseover", oppShowDetail1);
+    function oppShowDetail1(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("oppshowDetail funct entered");
+      oppShowDetailAll(0);//the index of hand array
+    }
+    document.getElementById("opponentHandZone2").addEventListener("mouseover", oppShowDetail2);
+    function oppShowDetail2(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("oppshowDetail funct entered");
+      oppShowDetailAll(1);//the index of hand array
+    }
+    document.getElementById("opponentHandZone3").addEventListener("mouseover", oppShowDetail3);
+    function oppShowDetail3(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("oppshowDetail funct entered");
+      oppShowDetailAll(2);//the index of hand array
+    }
+    document.getElementById("opponentHandZone4").addEventListener("mouseover", oppShowDetail4);
+    function oppShowDetail4(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      oppShowDetailAll(3);//the index of hand array
+    }
+    document.getElementById("opponentHandZone5").addEventListener("mouseover", oppShowDetail5);
+    function oppShowDetail5(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      oppShowDetailAll(4); //the index of hand array
+    }
+    document.getElementById("myHandZone6").addEventListener("mouseover", oppShowDetail6);
+    function oppShowDetail6(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      oppShowDetailAll(5); //pass the index
+    }
+
+    //this is used by all showdetails of hand// for oppnenthand only!!
+    function oppShowDetailAll(i){
+      var node = document.createElement("IMG")  //  <img></img>
+      var daImage3= "img/"+ oppHand[i].id + ".jpg"; //created string "img/SDY-001.jpg" Opponent hand array is accessed here
+      node.setAttribute("src", daImage3); //<img src="img/SDY"></img>
+      node.setAttribute("width", "250");//<img src="img/SDY" wifth="100"></img>
+      var detailSection = document.getElementById("detail"); //we are selcting the detail section
+      console.log(detailSection);
+      detailSection.replaceChild(node, detailSection.childNodes[1]);
+      console.log("showDetail funct exit");
     };

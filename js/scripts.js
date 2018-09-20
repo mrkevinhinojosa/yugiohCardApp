@@ -300,7 +300,6 @@ function updateBoardMonsters(){
     }
     console.log("forloopBoardMonsters counterfinsished at"+i);
     console.log("updateBoardMonsters exit");
-
 };
 
 
