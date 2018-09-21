@@ -152,6 +152,15 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+.teamApsLogo{
+background-image: url("https://kevi123.github.io/yugiohCardApp//img/team-aps.jpeg");
+background-color: #aacccc;
+height: 200px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
 .grids{
   /* background-color: red; */
   border-color: black;

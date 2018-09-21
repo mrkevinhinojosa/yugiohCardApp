@@ -191,7 +191,7 @@ function opponentUpdateBoardHand(){
 
 
 
-    //weclick on zone 3 and give detail the card[2]
+    //Ex. we click on zone 3 and give detail the card[2]
     //remember that arrays use index and handZones start at 1
     document.getElementById("opponentHandZone1").addEventListener("mouseover", oppShowDetail1);
     function oppShowDetail1(e){
