@@ -241,3 +241,57 @@ function opponentUpdateBoardHand(){
       detailSection.replaceChild(node, detailSection.childNodes[1]);
       console.log("showDetail funct exit");
     };
+
+
+
+
+    //These hovers work for the opponent monsters zone
+    //weclick on zone 3 and give detail the card[2]
+    //remember that arrays use index and handZones start at 1
+    document.getElementById("opponentMonsterZone1").addEventListener("mouseover", oppShowDetailMonsters1);
+    function oppShowDetailMonsters1(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      showDetailAllMonsters(0);//the index of hand array
+    }
+
+    document.getElementById("opponentMonsterZone2").addEventListener("mouseover", oppShowDetailMonsters2);
+    function oppShowDetailMonsters2(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      showDetailAllMonsters(1);//the index of hand array
+    }
+
+    document.getElementById("opponentMonsterZone3").addEventListener("mouseover", oppShowDetailMonsters3);
+    function oppShowDetailMonsters3(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      showDetailAllMonsters(2);//the index of hand array
+    }
+
+    document.getElementById("opponentMonsterZone4").addEventListener("mouseover", oppShowDetailMonsters4);
+    function oppShowDetailMonsters4(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      showDetailAllMonsters(3);//the index of hand array
+    }
+
+    document.getElementById("opponentMonsterZone5").addEventListener("mouseover", oppShowDetailMonsters5);
+    function oppShowDetailMonsters5(e){
+      e.preventDefault();//we nned this so the page doe not refresh
+      console.log("showDetail funct entered");
+      showDetailAllMonsters(4);//the index of hand array
+    }
+
+    //this gets called by all the mouseover monsterZones
+    //this is used by all showdetails of hand// for monsterzone only!! monster array
+    function showDetailAllMonsters(i){
+      var node = document.createElement("IMG")  //  <img></img>
+      var daImage5= "img/"+ oppMonsters[i].id + ".jpg"; //created string "img/SDY-001.jpg"
+      node.setAttribute("src", daImage5); //<img src="img/SDY"></img>
+      node.setAttribute("width", "250");//<img src="img/SDY" wifth="100"></img>
+      var detailSection = document.getElementById("detail"); //we are selcting the detail section
+      console.log(detailSection);
+      detailSection.replaceChild(node, detailSection.childNodes[1]);
+      console.log("showDetail funct exit");
+    };
