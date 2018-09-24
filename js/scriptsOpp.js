@@ -1,3 +1,11 @@
+//this script pertains only to the actions done on the opponents side
+var oppDeck = [];// created opponent empty deck []
+var oppHand = [];// created opponent empty hand []
+var oppMonsters = []; // created opponent monster zone []
+var oppTraps= []; //created array for opponent trap zone[]
+var oppGraveyard = []; //created opponent graveyard
+var oppCurrentHandSize=0;
+
 //These are kaibas deck cards
 var SDK_001 = {id:"SDK-001"};
 var SDK_002 = {id:"SDK-002"};
@@ -49,18 +57,6 @@ var SDK_047 = {id:"SDK-047"};
 var SDK_048 = {id:"SDK-048"};
 var SDK_049 = {id:"SDK-049"};
 var SDK_050 = {id:"SDK-050"};
-
-
-
-
-
-var oppDeck = [];// created opponent empty deck []
-var oppHand = [];// created opponent empty hand []
-var oppMonsters = []; // created opponent monster zone []
-var oppTraps= []; //created array for opponent trap zone[]
-var oppGraveyard = []; //created opponent graveyard
-var oppCurrentHandSize=0;
-
 
 
 //this is for kaibas deck, add all his cards to his deck
@@ -140,7 +136,7 @@ function opponentUpdateBoardHand(){
 
 
 
-  /////This is beta
+  /////
   //this function will remove card from hand and into monster card zone
   document.getElementById("opponentHandZone1").addEventListener("click", summonCard1opponent);
   function summonCard1opponent(e){
@@ -156,8 +152,91 @@ function opponentUpdateBoardHand(){
       opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
     }
       opponentUpdateBoardHand();
-
     } //hand was changed
+
+    document.getElementById("opponentHandZone2").addEventListener("click", summonCard2opponent);
+    function summonCard2opponent(e){
+      console.log("summon card funct activated");
+      console.log(oppMonsters.length);     //opponentMonsters is an array
+      e.preventDefault();//we need this so the page does not refresh
+      if(5<=oppMonsters.length){
+        alert("monsterZone card full")
+      }else{
+        //splice(index,howMany)
+        var tempMoveFromHandToMonsterZone = oppHand.splice(1,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+        oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+        opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+      }
+        opponentUpdateBoardHand();
+      } //hand was changed
+
+      document.getElementById("opponentHandZone3").addEventListener("click", summonCard3opponent);
+      function summonCard3opponent(e){
+        console.log("summon card funct activated");
+        console.log(oppMonsters.length);     //opponentMonsters is an array
+        e.preventDefault();//we need this so the page does not refresh
+        if(5<=oppMonsters.length){
+          alert("monsterZone card full")
+        }else{
+          //splice(index,howMany)
+          var tempMoveFromHandToMonsterZone = oppHand.splice(2,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+          oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+          opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+        }
+          opponentUpdateBoardHand();
+        } //hand was changed
+
+        document.getElementById("opponentHandZone4").addEventListener("click", summonCard4opponent);
+        function summonCard4opponent(e){
+          console.log("summon card funct activated");
+          console.log(oppMonsters.length);     //opponentMonsters is an array
+          e.preventDefault();//we need this so the page does not refresh
+          if(5<=oppMonsters.length){
+            alert("monsterZone card full")
+          }else{
+            //splice(index,howMany)
+            var tempMoveFromHandToMonsterZone = oppHand.splice(3,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+            oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+            opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+          }
+            opponentUpdateBoardHand();
+          } //hand was changed
+
+          document.getElementById("opponentHandZone5").addEventListener("click", summonCard5opponent);
+          function summonCard5opponent(e){
+            console.log("summon card funct activated");
+            console.log(oppMonsters.length);     //opponentMonsters is an array
+            e.preventDefault();//we need this so the page does not refresh
+            if(5<=oppMonsters.length){
+              alert("monsterZone card full")
+            }else{
+              //splice(index,howMany)
+              var tempMoveFromHandToMonsterZone = oppHand.splice(4,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+              oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+              opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+            }
+              opponentUpdateBoardHand();
+            } //hand was changed
+
+            document.getElementById("opponentHandZone6").addEventListener("click", summonCard6opponent);
+            function summonCard6opponent(e){
+              console.log("summon card funct activated");
+              console.log(oppMonsters.length);     //opponentMonsters is an array
+              e.preventDefault();//we need this so the page does not refresh
+              if(5<=oppMonsters.length){
+                alert("monsterZone card full")
+              }else{
+                //splice(index,howMany)
+                var tempMoveFromHandToMonsterZone = oppHand.splice(5,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
+                oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
+                opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+              }
+                opponentUpdateBoardHand();
+              } //hand was changed
+
+
+
+
 
 
     //thsi function needs to be finsihed
