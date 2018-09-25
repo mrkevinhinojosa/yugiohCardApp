@@ -112,7 +112,6 @@
   /*margin: 2px 25px 2px 25px; /* top right bottom left*/
 }
 
-/* test please change back to wallpaper2*/
 /* for the main background */
 .hero-image{
   background-image: url("https://kevi123.github.io/yugiohCardApp//img/wallpaper2.jpeg");
@@ -153,6 +152,15 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+.teamApsLogo{
+background-image: url("https://kevi123.github.io/yugiohCardApp//img/team-aps.jpeg");
+background-color: #aacccc;
+height: 200px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
 .grids{
   /* background-color: red; */
   border-color: black;
@@ -185,8 +193,14 @@ background-size: cover;
 .lifepoints{
   background-color: #0000ddcc;
   color: darkred;
+  text-shadow: 2px 2px gold;
   font-weight: bold;
   text-align: center;
+  font-size: 20px;
+}
+
+.fontSize40{
+  font-size: 40px;
 }
 
 .help-text{
