@@ -30,10 +30,38 @@
 // atk def name Cardtype attribute class stars effect flip
 
 var sound = new Audio("audio/mainTheme.mp3");
-sound.play();
+// sound.play();  //this will start the theme song
 
 var levelUpSound = new Audio("audio/marioMushroom.mp3");
-var alertSound = new Audio("audio/alertMGS.mp3")
+var alertSound = new Audio("audio/alertMGS.mp3");
+var diceRoll= new Audio("audio/diceRoll.mp3");
+var coinToss= new Audio("audio/coinToss.mp3");
+var drawSound = new Audio("audio/cardDraw.mp3");
+var summonSound = new Audio ("audio/summoningSound.mp3")
+
+//these are all famous quotes of seto Kaiba
+var kaiba1 = new Audio("audio/kAgain.mp3");
+var kaiba2 = new Audio("audio/kAutograph.mp3");
+var kaiba3 = new Audio("audio/kCongrats.mp3");
+var kaiba4 = new Audio("audio/kDetermination.mp3");
+var kaiba5 = new Audio("audio/kDisgrace.mp3");
+var kaiba6 = new Audio("audio/kEliminate.mp3");
+var kaiba7 = new Audio("audio/kEmbarrasment.mp3");
+var kaiba8 = new Audio("audio/kEmptyThreats.mp3");
+var kaiba9 = new Audio("audio/kFailures.mp3");
+var kaiba10 = new Audio("audio/kFans.mp3");
+var kaiba12 = new Audio("audio/kFinished.mp3");
+var kaiba13 = new Audio("audio/kLaugh.mp3");
+var kaiba14 = new Audio("audio/kLoser.mp3");
+var kaiba15 = new Audio("audio/kMe.mp3");
+var kaiba16 = new Audio("audio/kOne.mp3");
+var kaiba17 = new Audio("audio/kPresident.mp3");
+var kaiba18 = new Audio("audio/kSmacking.mp3");
+var kaiba19 = new Audio("audio/kSuperior.mp3");
+var kaiba20 = new Audio("audio/kUnstoppable.mp3");
+
+var kaibaSoundsArray= [];
+
 
 
 //We need to add image link
@@ -149,6 +177,7 @@ function drawCard(e){
     console.log(myDeck);
     updateBoardHand();
     updateBoardMonsters();
+    summonSound.play();
 
   }
 };
@@ -208,6 +237,7 @@ function summonCard1(e){
     myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
     updateBoardMonsters();  }
   updateBoardHand();
+  summonSound.play();
 
   } //hand was changed
 
@@ -223,6 +253,8 @@ function summonCard2(e){
       myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       updateBoardMonsters();  }
     updateBoardHand();
+    summonSound.play();
+
     } //hand was changed
 document.getElementById("myHandZone3").addEventListener("click", summonCard3);
 function summonCard3(e){
@@ -236,6 +268,8 @@ function summonCard3(e){
         myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
         updateBoardMonsters();  }
       updateBoardHand();
+      summonSound.play();
+
       } //hand was changed
 
 document.getElementById("myHandZone4").addEventListener("click", summonCard4);
@@ -250,6 +284,8 @@ function summonCard4(e){
       myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       updateBoardMonsters();  }
     updateBoardHand();
+    summonSound.play();
+
     } //hand was changed
 
 document.getElementById("myHandZone5").addEventListener("click", summonCard5);
@@ -264,6 +300,8 @@ function summonCard5(e){
           myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
           updateBoardMonsters();  }
       updateBoardHand();
+      summonSound.play();
+
       } //hand was changed
 
 document.getElementById("myHandZone6").addEventListener("click", summonCard6);
@@ -278,6 +316,8 @@ function summonCard6(e){
         myMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
         updateBoardMonsters();  }
       updateBoardHand();
+      summonSound.play();
+
 } //hand was changed
 
 
@@ -546,19 +586,26 @@ document.getElementById("mySubtractLifePoints").addEventListener("click", myDecr
       }
 
 
+//this function essentially works a a sleep(3) or system.pause(3)
+function wait(ms){
+  var d = new Date();
+  var d2 = null;
+  do { d2 = new Date(); }
+  while(d2-d < ms);
+}
 
 
-
-
-document.getElementById("diceroll").addEventListener("click", diceRoll);
+document.getElementById("diceroll").addEventListener("click", dice);
 
 //this function returns randome number
-  function diceRoll(e){
+function dice(e){
     e.preventDefault(); //we need this so the page does not refresh
+    diceRoll.play(); //audio effect
     var randomNum=0;
     while(randomNum==0){//this line prevents a 0 being displayed
       randomNum = Math.floor(Math.random() * 7); //returns a random number from 0-6
     }   //math.random() returns floating numn 0-.999999999, including 0 but not 1 or [0-1)
+    // wait(6000); //pause and wait for sound to finish i.e. system.pause(3)
     alert("The Dice landed on "+ randomNum);
 }
 
@@ -568,6 +615,7 @@ document.getElementById("coinflip").addEventListener("click", coinFlip);
 //this function returns randome number
 function coinFlip(e){
     e.preventDefault(); //we need this so the page does not refresh
+    coinToss.play();  //audio effect
     var randomNum = Math.random() ; //returns a random number from 0-9
     if (randomNum<.5) {
       alert("TAILS");

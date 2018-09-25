@@ -94,6 +94,8 @@ function opponentDrawCard(e){
     console.log("oppDeck is");
     console.log(oppDeck);
     opponentUpdateBoardHand();
+    summonSound.play();
+
   //  updateBoardMonsters();    //we need this function
   }
 }
@@ -151,6 +153,8 @@ function opponentUpdateBoardHand(){
       var tempMoveFromHandToMonsterZone = oppHand.splice(0,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
       oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+      summonSound.play();
+
     }
       opponentUpdateBoardHand();
     } //hand was changed
@@ -167,8 +171,11 @@ function opponentUpdateBoardHand(){
       var tempMoveFromHandToMonsterZone = oppHand.splice(1,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
       oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+      summonSound.play();
+
     }
       opponentUpdateBoardHand();
+
     } //hand was changed
 
   document.getElementById("opponentHandZone3").addEventListener("click", summonCard3opponent);
@@ -183,6 +190,8 @@ function opponentUpdateBoardHand(){
       var tempMoveFromHandToMonsterZone = oppHand.splice(2,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
       oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+      summonSound.play();
+
     }
       opponentUpdateBoardHand();
     } //hand was changed
@@ -199,6 +208,8 @@ function opponentUpdateBoardHand(){
       var tempMoveFromHandToMonsterZone = oppHand.splice(3,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
       oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+      summonSound.play();
+
     }
       opponentUpdateBoardHand();
     } //hand was changed
@@ -215,6 +226,8 @@ function opponentUpdateBoardHand(){
       var tempMoveFromHandToMonsterZone = oppHand.splice(4,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
       oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+      summonSound.play();
+
     }
       opponentUpdateBoardHand();
     } //hand was changed
@@ -231,6 +244,8 @@ function opponentUpdateBoardHand(){
       var tempMoveFromHandToMonsterZone = oppHand.splice(5,1)[0]; //splice returns an array. we only want the first index[cardtosummon]
       oppMonsters.push(tempMoveFromHandToMonsterZone); //remove from hand and add to mosterzone, refer to myhandZone#
       opponentUpdateBoardMonsters();   //this one doesnt exist yet, finish it line 470
+      summonSound.play();
+
     }
       opponentUpdateBoardHand();
     } //hand was changed
