@@ -29,6 +29,11 @@
 //class structure{name:",null", atk:",null", def:", null", type:"monster, magic, trap"};
 // atk def name Cardtype attribute class stars effect flip
 
+var sound = new Audio("audio/mainTheme.mp3");
+sound.play();
+
+var levelUpSound = new Audio("audio/marioMushroom.mp3");
+var alertSound = new Audio("audio/alertMGS.mp3")
 
 
 //We need to add image link
@@ -93,6 +98,7 @@ var myMonsters = []; // created monster zone []
 var myTraps=[]; //created trap card zone
 var myGraveyard = []; //created graveyard
 var currentHandSize= 0; //this counter holds the size of your hand
+var myLifePoints= 8000; // this holds the life points
 
 
 
@@ -471,11 +477,11 @@ function showDetailAllTrap(i){
 
 
 // is this needed? we have modal, just add items
- document.getElementById("myMonsterZone1").addEventListener("dblclick", sendToGrave1);
- function sendToGrave1(e){
-   e.preventDefault();
-   // console.log(myGraveyard);
-   sendToGraveAll(0); //pass the moster zone index
+document.getElementById("myMonsterZone1").addEventListener("dblclick", sendToGrave1);
+function sendToGrave1(e){
+ e.preventDefault();
+ // console.log(myGraveyard);
+ sendToGraveAll(0); //pass the moster zone index
 }
 
 document.getElementById("myMonsterZone2").addEventListener("dblclick", sendToGrave2);
@@ -522,7 +528,22 @@ function sendToGraveAll(monsterIndex){
 
 
 
-
+//we will add 100 point to my lifepoints
+document.getElementById("myPlusLifePoints").addEventListener("click", myIncrease);
+  function myIncrease(e){
+    console.log("myIncrease");
+    levelUpSound.play();
+    myLifePoints = myLifePoints+100; //oppLifePoints is a global variable
+    document.getElementById("myLifePoints").textContent =myLifePoints;
+    }
+//we will substract 100 point to my lifepoints
+document.getElementById("mySubtractLifePoints").addEventListener("click", myDecrease);
+  function myDecrease(e){
+    console.log("myDecrease");
+    alertSound.play();
+    myLifePoints = myLifePoints-100; //oppLifePoints is a global variable
+    document.getElementById("myLifePoints").textContent =myLifePoints;
+      }
 
 
 
@@ -555,6 +576,11 @@ function coinFlip(e){
     }
     console.log(randomNum);
 }
+
+
+
+
+
 
 //testing Modal
 // Get the modal

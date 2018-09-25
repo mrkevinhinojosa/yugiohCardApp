@@ -5,6 +5,7 @@ var oppMonsters = []; // created opponent monster zone []
 var oppTraps= []; //created array for opponent trap zone[]
 var oppGraveyard = []; //created opponent graveyard
 var oppCurrentHandSize=0;
+var oppLifePoints =8000;
 
 //These are kaibas deck cards
 var SDK_001 = {id:"SDK-001"};
@@ -237,9 +238,61 @@ function opponentUpdateBoardHand(){
 
 
 
+    // is this needed? we have modal, just add items
+    document.getElementById("opponentMonsterZone1").addEventListener("dblclick", oppSendToGrave1);
+    function oppSendToGrave1(e){
+     e.preventDefault();
+     // console.log(myGraveyard);
+     oppSendToGraveAll(0); //pass the moster zone index
+    }
+
+    document.getElementById("opponentMonsterZone2").addEventListener("dblclick", oppSendToGrave2);
+    function oppSendToGrave2(e){
+      e.preventDefault();
+      oppSendToGraveAll(1); //pass the moster zone index
+    }
+
+    document.getElementById("opponentMonsterZone3").addEventListener("dblclick", oppSendToGrave3);
+    function oppSendToGrave3(e){
+      e.preventDefault();
+      oppSendToGraveAll(2); //pass the moster zone index
+    }
+
+    document.getElementById("opponentMonsterZone4").addEventListener("dblclick", oppSendToGrave4);
+    function oppSendToGrave4(e){
+      e.preventDefault();
+      oppSendToGraveAll(3); //pass the moster zone index
+    }
+
+    document.getElementById("opponentMonsterZone5").addEventListener("dblclick", oppSendToGrave5);
+    function oppSendToGrave5(e){
+      e.preventDefault();
+      oppSendToGraveAll(4); //pass the moster zone index
+    }
+
+    //this function will be used to send monster to grave, passed the index
+    function oppSendToGraveAll(monsterIndex){
+        var tempMoveToGraveYard = oppMonsters.splice(monsterIndex,1); //this give us the card we want
+        oppGraveyard.push((tempMoveToGraveYard[0])); //this actually puts the card in the grave array
+        console.log("my Graveyard is after push");
+        console.log(oppGraveyard);
+        var node4 =  document.createElement("IMG");
+        var indexLastGrave= oppGraveyard.length-1;
+        var daImage4= "img/"+ oppGraveyard[indexLastGrave].id + ".jpg"; //created string "img/SDY-001.jpg"
+        node4.setAttribute("src", daImage4); //<img src="img/SDY"></img>
+        node4.setAttribute("width", "65");//<img src="img/SDY" wifth="100"></img>
+        var theGraveYardSection = document.getElementById("opponentGraveyard");
+        theGraveYardSection.replaceChild(node4, theGraveYardSection.childNodes[1]);
+        // sendToGraveAll(0); //PASS THE index
+        opponentUpdateBoardHand();
+        opponentUpdateBoardMonsters();
+    }
+
+
+
     //thsi function needs to be finsihed
   function opponentUpdateBoardMonsters(){
-      alert("entererd opp updateBoardMonsters");
+      // alert("entererd opp updateBoardMonsters");
       console.log("oppHand is");
       console.log(oppHand);
       console.log("oppMonsters are");
@@ -372,3 +425,25 @@ function opponentUpdateBoardHand(){
       detailSection.replaceChild(node, detailSection.childNodes[1]);
       console.log("showDetail funct exit");
     };
+
+
+
+
+
+
+//we will add 100 point to opponent lifepoints
+document.getElementById("opponnentPlusLifePoints").addEventListener("click", oppIncrease);
+  function oppIncrease(e){
+    console.log("oppIncrease");
+    levelUpSound.play();
+    oppLifePoints = oppLifePoints+100; //oppLifePoints is a global variable
+    document.getElementById("opponentLifePoints").textContent =oppLifePoints;
+    }
+
+document.getElementById("opponnentSubtractLifePoints").addEventListener("click", oppDecrease);
+  function oppDecrease(e){
+    console.log("oppDecrease");
+    alertSound.play();
+    oppLifePoints = oppLifePoints-100; //oppLifePoints is a global variable
+    document.getElementById("opponentLifePoints").textContent =oppLifePoints;
+      }
