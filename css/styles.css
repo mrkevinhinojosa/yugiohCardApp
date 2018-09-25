@@ -156,7 +156,7 @@ background-size: cover;
 
 .teamAps{
 background-image: url("https://kevi123.github.io/yugiohCardApp//img/team-aps-logo.png");
-background-color: #aacccc;
+/* background-color: #aacccc; */
 height: 200px;
 background-position: center;
 background-repeat: no-repeat;
@@ -165,7 +165,7 @@ background-size: cover;
 
 .teamApsLogo{
 background-image: url("https://kevi123.github.io/yugiohCardApp//img/team-aps.jpeg");
-background-color: #aacccc;
+/* background-color: #aacccc; */
 height: 200px;
 background-position: center;
 background-repeat: no-repeat;

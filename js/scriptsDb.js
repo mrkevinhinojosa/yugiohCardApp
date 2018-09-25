@@ -1,4 +1,6 @@
 //this script2 is for th deck customizer
+var themeSong = new Audio("audio/mainTheme.mp3");
+themeSong.play();
 
 var SDY_001 = {id:"SDY-001", name:"Mystical Elf",              type:"Normal Monster",      attribute:"LIGHT", 	subtype:"Spellcaster",  level:"4", atk:	"800" , def:"2000",  rarity:"Common",     description:"A delicate elf that lacks offense, but has a terrific defense backed by mystical power."};
 var SDY_002 = {id:"SDY-002", name:"Feral Imp",                 type:"Normal Monster",      attribute:"DARK", 	  subtype:"Fiend",	      level:"4", atk:	"1300" ,def:"1400",  rarity:"Common",     description:"A playful little fiend that lurks in the dark, waiting to attack an unwary enemy."};

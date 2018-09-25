@@ -29,8 +29,8 @@
 //class structure{name:",null", atk:",null", def:", null", type:"monster, magic, trap"};
 // atk def name Cardtype attribute class stars effect flip
 
-var sound = new Audio("audio/mainTheme.mp3");
-// sound.play();  //this will start the theme song
+var themeSong = new Audio("audio/mainTheme.mp3");
+themeSong.play();  //this will start the theme song
 
 var levelUpSound = new Audio("audio/marioMushroom.mp3");
 var alertSound = new Audio("audio/alertMGS.mp3");
