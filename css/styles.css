@@ -1,3 +1,5 @@
+
+
 .cardZone{
   background-color: #00bb0099 ;
   border-style: solid;
@@ -145,6 +147,15 @@
 
 .yugiProfileBackground{
 background-image: url("https://kevi123.github.io/yugiohCardApp//img/yugi-profile3.jpeg");
+background-color: #aacccc;
+height: 200px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.teamAps{
+background-image: url("https://kevi123.github.io/yugiohCardApp//img/team-aps-logo.png");
 background-color: #aacccc;
 height: 200px;
 background-position: center;

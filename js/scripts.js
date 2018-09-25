@@ -50,19 +50,33 @@ var kaiba7 = new Audio("audio/kEmbarrasment.mp3");
 var kaiba8 = new Audio("audio/kEmptyThreats.mp3");
 var kaiba9 = new Audio("audio/kFailures.mp3");
 var kaiba10 = new Audio("audio/kFans.mp3");
-var kaiba12 = new Audio("audio/kFinished.mp3");
-var kaiba13 = new Audio("audio/kLaugh.mp3");
-var kaiba14 = new Audio("audio/kLoser.mp3");
-var kaiba15 = new Audio("audio/kMe.mp3");
-var kaiba16 = new Audio("audio/kOne.mp3");
-var kaiba17 = new Audio("audio/kPresident.mp3");
-var kaiba18 = new Audio("audio/kSmacking.mp3");
-var kaiba19 = new Audio("audio/kSuperior.mp3");
-var kaiba20 = new Audio("audio/kUnstoppable.mp3");
+var kaiba11 = new Audio("audio/kFinished.mp3");
+var kaiba12 = new Audio("audio/kLaugh.mp3");
+var kaiba13 = new Audio("audio/kLoser.mp3");
+var kaiba14 = new Audio("audio/kMe.mp3");
+var kaiba15 = new Audio("audio/kOne.mp3");
+var kaiba16 = new Audio("audio/kPresident.mp3");
+var kaiba17 = new Audio("audio/kSmacking.mp3");
+var kaiba18 = new Audio("audio/kSuperior.mp3");
+var kaiba19 = new Audio("audio/kUnstoppable.mp3");
 
 var kaibaSoundsArray= [];
-
-
+//push all kaiba sounds into array
+var i=1;
+for (i=1; i<=20; i++){
+  // console.log(i);
+  if(i<10){     //"SDY_00" +"9"
+    sounds = this["kaiba"+i];// this lets us work with the variable name
+    // console.log(myConcat); this diplays the variable or card added to deck
+    kaibaSoundsArray.push(sounds);}   //add to the end of the deck array
+  else if(i>=10){   //"SDY_0"+"49"
+    sounds = this["kaiba"+i];
+    // console.log(myConcat);
+    kaibaSoundsArray.push(sounds); //add to the end of the deck array}
+    console.log("added")
+  }
+};
+console.log(kaibaSoundsArray);
 
 //We need to add image link
 var SDY_001 = {id:"SDY-001", name:"Mystical Elf",              type:"Normal Monster",      attribute:"LIGHT", 	subtype:"Spellcaster",  level:"4", atk:	"800" , def:"2000",  rarity:"Common",     description:"A delicate elf that lacks offense, but has a terrific defense backed by mystical power."};
@@ -139,7 +153,6 @@ var myLifePoints= 8000; // this holds the life points
 
 
 //add all yugis cards to an array
-var i=1;
 for (i=1; i<=50; i++){
   // console.log(i);
   if(i<10){     //"SDY_00" +"9"
@@ -593,6 +606,16 @@ function wait(ms){
   do { d2 = new Date(); }
   while(d2-d < ms);
 }
+
+document.getElementById("opponentImage").addEventListener("click", kaibaTalk)
+
+//this function makes kaiba talk
+function kaibaTalk(e){
+  console.log("kaibaTalk")
+  var randomNum=0;
+    randomNum = Math.floor(Math.random() * 19); //returns a random number from 0-19
+  kaibaSoundsArray[randomNum].play(); //play random quote
+;}
 
 
 document.getElementById("diceroll").addEventListener("click", dice);
