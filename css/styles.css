@@ -265,3 +265,9 @@ background-size: cover;
    text-decoration: none;
    cursor: pointer;
 }
+
+
+.rotated-image {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
