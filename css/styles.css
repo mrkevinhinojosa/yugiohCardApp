@@ -122,7 +122,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: .5;
 }
 
 /* //this is for th deck-builder website */
@@ -156,7 +155,7 @@ background-size: cover;
 }
 
 .teamAps{
-background-image: url("https://mrkevinhinojosa.github.io/yugiohCardApp//img/team-aps-logo.png");
+background-image: url("https://mrkevinhinojosa.com/wp-content/uploads/elementor/thumbs/IMG_8839-oy6mkpou9e69tna305wbputp9c83vv78j3box591i8.jpg");
 /* background-color: #aacccc; */
 height: 200px;
 background-position: center;
@@ -165,7 +164,7 @@ background-size: cover;
 }
 
 .teamApsLogo{
-background-image: url("https://mrkevinhinojosa.github.io/yugiohCardApp//img/team-aps.jpeg");
+background-image: url("https://mrkevinhinojosa.com/wp-content/uploads/elementor/thumbs/IMG_8839-oy6mkpou9e69tna305wbputp9c83vv78j3box591i8.jpg");
 /* background-color: #aacccc; */
 height: 200px;
 background-position: center;
